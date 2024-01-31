@@ -33,7 +33,7 @@ public partial class Sewing_Report_Mr_Daily_Production_Variance_Rpt : System.Web
             string ComName = dsGetCompany.Tables[0].Rows[0]["cCmpName"].ToString();
             string cAdd1 = dsGetCompany.Tables[0].Rows[0]["cAdd1"].ToString();
             string cAdd2 = dsGetCompany.Tables[0].Rows[0]["cAdd2"].ToString();
-      //
+     
 
             string FromDate = Session["FROMDATE"].ToString();
             ReportViewer1.ProcessingMode = ProcessingMode.Local;
