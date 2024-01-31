@@ -48,7 +48,7 @@ public partial class Sewing_Report_Mr_Daily_Production_Variance_Rpt : System.Web
             //cmd.Fill(ds, "Mr_Daily_Production_Variance_Rpt");
             ReportDataSource rds = new ReportDataSource("DataSet1", ds.Tables[0]);
             ReportParameterCollection reportParameters = new ReportParameterCollection();
-
+            //
             reportParameters.Add(new ReportParameter("Company", ComName));
             reportParameters.Add(new ReportParameter("Factory", Fact));
             reportParameters.Add(new ReportParameter("Add1", cAdd1));
