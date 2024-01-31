@@ -1,0 +1,40 @@
+declare @toDay date
+declare @com int
+set @com=49
+Set @toDay=GETDATE()-2
+
+SELECT TOP (100) PERCENT a.BTStyleCode, a.BTLine, b.tdayInputQty, c.cumInputQty, SUM(ISNULL(a.BTQty, 0)) AS tdaySewQty, d.cumSewQty, e.runday, f.fst_inputdat, g.LDayTgt, g.LTMo, g.LWrkMint, SpecFo.dbo.Smt_StyleMaster.cStyleNo, SpecFo.dbo.Smt_StyleMaster.pro_smv,
+                  SpecFo.dbo.Smt_StyleMaster.nTotOrdQty, SpecFo.dbo.Smt_GmtType.cGmetDis, SpecFo.dbo.Smt_BuyerName.cBuyer_Name, SpecFo.dbo.Smt_Floor.cFloor_Descriptin, g.LLineRem, SpecFo.dbo.Smt_Line.Line_No
+FROM     SpecFo.dbo.Smt_Floor INNER JOIN
+                      (SELECT LFloor, LLineID, LTMo, LDayTgt, LWrkMint, LLineRem
+                       FROM      SmartCode.dbo.Smt_LineDetail
+                       WHERE   (LDate = @toDay) and CompanyID=@com
+                       GROUP BY LFloor, LLineID, LTMo, LDayTgt, LWrkMint, LLineRem) AS g ON SpecFo.dbo.Smt_Floor.nFloor = g.LFloor INNER JOIN
+                  SpecFo.dbo.Smt_Line ON g.LLineID = SpecFo.dbo.Smt_Line.Line_Code RIGHT OUTER JOIN
+                  SmartCode.dbo.BundleTicket AS a INNER JOIN
+                  SpecFo.dbo.Smt_StyleMaster ON a.BTStyleCode = SpecFo.dbo.Smt_StyleMaster.nStyleID INNER JOIN
+                  SpecFo.dbo.Smt_GmtType ON SpecFo.dbo.Smt_StyleMaster.cGmtType = SpecFo.dbo.Smt_GmtType.nGmtCode INNER JOIN
+                  SpecFo.dbo.Smt_BuyerName ON SpecFo.dbo.Smt_StyleMaster.nAcct = SpecFo.dbo.Smt_BuyerName.nBuyer_ID LEFT OUTER JOIN
+                      (SELECT BTStyleCode, BTLine, SUM(ISNULL(BTQty, 0)) AS tdayInputQty
+                       FROM      SmartCode.dbo.BundleTicket
+                       WHERE   (BTOperationNo = 4) AND (BTScanDate = @toDay) and CompanyID=@com
+                       GROUP BY BTStyleCode, BTLine) AS b ON a.BTStyleCode = b.BTStyleCode AND a.BTLine = b.BTLine LEFT OUTER JOIN
+                      (SELECT BTStyleCode, BTLine, SUM(ISNULL(BTQty, 0)) AS cumInputQty
+                       FROM      SmartCode.dbo.BundleTicket AS BundleTicket_3
+                       WHERE   (BTOperationNo = 4) and CompanyID=@com
+                       GROUP BY BTStyleCode, BTLine) AS c ON a.BTStyleCode = c.BTStyleCode AND a.BTLine = c.BTLine LEFT OUTER JOIN
+                      (SELECT BTStyleCode, BTLine, SUM(ISNULL(BTQty, 0)) AS cumSewQty
+                       FROM      SmartCode.dbo.BundleTicket AS BundleTicket_2
+                       WHERE   (BTOperationNo = 5) and CompanyID=@com
+                       GROUP BY BTStyleCode, BTLine) AS d ON a.BTStyleCode = d.BTStyleCode AND a.BTLine = d.BTLine LEFT OUTER JOIN
+                      (SELECT aStyleID, aLineID, DATEDIFF(day, MIN(aDate), GETDATE()) AS runday
+                       FROM      SmartCode.dbo.Hrs_ProductionByLine
+                       GROUP BY aStyleID, aLineID) AS e ON a.BTStyleCode = e.aStyleID AND a.BTLine = e.aLineID LEFT OUTER JOIN
+                      (SELECT BTStyleCode, BTLine, MIN(BTScanDate) AS fst_inputdat
+                       FROM      SmartCode.dbo.BundleTicket AS BundleTicket_1
+                       WHERE   (BTOperationNo = 4) and CompanyID=@com
+                       GROUP BY BTStyleCode, BTLine) AS f ON a.BTStyleCode = f.BTStyleCode AND a.BTLine = f.BTLine ON g.LLineID = a.BTLine
+WHERE  (a.BTOperationNo = 5) AND (a.BTScanDate = @toDay) and a.CompanyID=@com
+GROUP BY a.BTStyleCode, a.BTLine, b.tdayInputQty, c.cumInputQty, d.cumSewQty, e.runday, f.fst_inputdat, g.LDayTgt, g.LTMo, g.LWrkMint, SpecFo.dbo.Smt_StyleMaster.cStyleNo, SpecFo.dbo.Smt_StyleMaster.nTotOrdQty, SpecFo.dbo.Smt_StyleMaster.pro_smv,
+                  SpecFo.dbo.Smt_GmtType.cGmetDis, SpecFo.dbo.Smt_BuyerName.cBuyer_Name, SpecFo.dbo.Smt_Floor.cFloor_Descriptin, g.LLineRem, SpecFo.dbo.Smt_Line.Line_No
+ORDER BY a.BTLine

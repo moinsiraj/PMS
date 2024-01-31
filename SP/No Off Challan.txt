@@ -1,0 +1,5 @@
+select  BTBarCode, sum (BTQty) as Qty from BundleTicket where BTScanDate >='2022-11-14' and BTScanDate <='2022-11-21' and BTOperationNo=4
+
+group by BTBarCode 
+
+order by BTBarCode

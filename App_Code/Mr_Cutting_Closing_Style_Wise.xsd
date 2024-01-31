@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Mr_Cutting_Closing_Style_Wise" targetNamespace="http://tempuri.org/Mr_Cutting_Closing_Style_Wise.xsd" xmlns:mstns="http://tempuri.org/Mr_Cutting_Closing_Style_Wise.xsd" xmlns="http://tempuri.org/Mr_Cutting_Closing_Style_Wise.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Mr_PMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Mr_PMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Mr_PMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Mr_Cutting_Closing_Style_Wise" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="Mr_Cutting_Closing_Style_Wise" msprop:Generator_UserDSName="Mr_Cutting_Closing_Style_Wise">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Mr_Sewing_Closing_Style_Line_Wise_Report" msprop:Generator_TableClassName="Mr_Sewing_Closing_Style_Line_Wise_ReportDataTable" msprop:Generator_TableVarName="tableMr_Sewing_Closing_Style_Line_Wise_Report" msprop:Generator_TablePropName="Mr_Sewing_Closing_Style_Line_Wise_Report" msprop:Generator_RowDeletingName="Mr_Sewing_Closing_Style_Line_Wise_ReportRowDeleting" msprop:Generator_RowChangingName="Mr_Sewing_Closing_Style_Line_Wise_ReportRowChanging" msprop:Generator_RowEvHandlerName="Mr_Sewing_Closing_Style_Line_Wise_ReportRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Sewing_Closing_Style_Line_Wise_ReportRowDeleted" msprop:Generator_UserTableName="Mr_Sewing_Closing_Style_Line_Wise_Report" msprop:Generator_RowChangedName="Mr_Sewing_Closing_Style_Line_Wise_ReportRowChanged" msprop:Generator_RowEvArgName="Mr_Sewing_Closing_Style_Line_Wise_ReportRowChangeEvent" msprop:Generator_RowClassName="Mr_Sewing_Closing_Style_Line_Wise_ReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BTStyleCode" msprop:Generator_ColumnVarNameInTable="columnBTStyleCode" msprop:Generator_ColumnPropNameInRow="BTStyleCode" msprop:Generator_ColumnPropNameInTable="BTStyleCodeColumn" msprop:Generator_UserColumnName="BTStyleCode" type="xs:int" minOccurs="0" />
+              <xs:element name="InQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInQty" msprop:Generator_ColumnPropNameInRow="InQty" msprop:Generator_ColumnPropNameInTable="InQtyColumn" msprop:Generator_UserColumnName="InQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sewQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsewQty" msprop:Generator_ColumnPropNameInRow="sewQty" msprop:Generator_ColumnPropNameInTable="sewQtyColumn" msprop:Generator_UserColumnName="sewQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BTLineDes" msprop:Generator_ColumnVarNameInTable="columnBTLineDes" msprop:Generator_ColumnPropNameInRow="BTLineDes" msprop:Generator_ColumnPropNameInTable="BTLineDesColumn" msprop:Generator_UserColumnName="BTLineDes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BTStyle" msprop:Generator_ColumnVarNameInTable="columnBTStyle" msprop:Generator_ColumnPropNameInRow="BTStyle" msprop:Generator_ColumnPropNameInTable="BTStyleColumn" msprop:Generator_UserColumnName="BTStyle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mr_Cutting_Closing_Style_Wise_Report" msprop:Generator_TableClassName="Mr_Cutting_Closing_Style_Wise_ReportDataTable" msprop:Generator_TableVarName="tableMr_Cutting_Closing_Style_Wise_Report" msprop:Generator_RowChangedName="Mr_Cutting_Closing_Style_Wise_ReportRowChanged" msprop:Generator_TablePropName="Mr_Cutting_Closing_Style_Wise_Report" msprop:Generator_RowDeletingName="Mr_Cutting_Closing_Style_Wise_ReportRowDeleting" msprop:Generator_RowChangingName="Mr_Cutting_Closing_Style_Wise_ReportRowChanging" msprop:Generator_RowEvHandlerName="Mr_Cutting_Closing_Style_Wise_ReportRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Cutting_Closing_Style_Wise_ReportRowDeleted" msprop:Generator_RowClassName="Mr_Cutting_Closing_Style_Wise_ReportRow" msprop:Generator_UserTableName="Mr_Cutting_Closing_Style_Wise_Report" msprop:Generator_RowEvArgName="Mr_Cutting_Closing_Style_Wise_ReportRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cConDes" msprop:Generator_ColumnVarNameInTable="columncConDes" msprop:Generator_ColumnPropNameInRow="cConDes" msprop:Generator_ColumnPropNameInTable="cConDesColumn" msprop:Generator_UserColumnName="cConDes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nCol" msprop:Generator_ColumnVarNameInTable="columnnCol" msprop:Generator_ColumnPropNameInRow="nCol" msprop:Generator_ColumnPropNameInTable="nColColumn" msprop:Generator_UserColumnName="nCol" type="xs:int" />
+              <xs:element name="OrdQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOrdQty" msprop:Generator_ColumnPropNameInRow="OrdQty" msprop:Generator_ColumnPropNameInTable="OrdQtyColumn" msprop:Generator_UserColumnName="OrdQty" type="xs:int" minOccurs="0" />
+              <xs:element name="CutQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCutQty" msprop:Generator_ColumnPropNameInRow="CutQty" msprop:Generator_ColumnPropNameInTable="CutQtyColumn" msprop:Generator_UserColumnName="CutQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sntprint" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsntprint" msprop:Generator_ColumnPropNameInRow="sntprint" msprop:Generator_ColumnPropNameInTable="sntprintColumn" msprop:Generator_UserColumnName="sntprint" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rcvdprint" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnrcvdprint" msprop:Generator_ColumnPropNameInRow="rcvdprint" msprop:Generator_ColumnPropNameInTable="rcvdprintColumn" msprop:Generator_UserColumnName="rcvdprint" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fusing" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfusing" msprop:Generator_ColumnPropNameInRow="fusing" msprop:Generator_ColumnPropNameInTable="fusingColumn" msprop:Generator_UserColumnName="fusing" type="xs:decimal" minOccurs="0" />
+              <xs:element name="InputQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInputQty" msprop:Generator_ColumnPropNameInRow="InputQty" msprop:Generator_ColumnPropNameInTable="InputQtyColumn" msprop:Generator_UserColumnName="InputQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SewQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSewQty" msprop:Generator_ColumnPropNameInRow="SewQty" msprop:Generator_ColumnPropNameInTable="SewQtyColumn" msprop:Generator_UserColumnName="SewQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cColour" msprop:Generator_ColumnVarNameInTable="columncColour" msprop:Generator_ColumnPropNameInRow="cColour" msprop:Generator_ColumnPropNameInTable="cColourColumn" msprop:Generator_UserColumnName="cColour" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cPoNum" msprop:Generator_ColumnVarNameInTable="columncPoNum" msprop:Generator_ColumnPropNameInRow="cPoNum" msprop:Generator_ColumnPropNameInTable="cPoNumColumn" msprop:Generator_UserColumnName="cPoNum" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cStyleNo" msprop:Generator_ColumnVarNameInTable="columncStyleNo" msprop:Generator_ColumnPropNameInRow="cStyleNo" msprop:Generator_ColumnPropNameInTable="cStyleNoColumn" msprop:Generator_UserColumnName="cStyleNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cGmetDis" msprop:Generator_ColumnVarNameInTable="columncGmetDis" msprop:Generator_ColumnPropNameInRow="cGmetDis" msprop:Generator_ColumnPropNameInTable="cGmetDisColumn" msprop:Generator_UserColumnName="cGmetDis" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nTotOrdQty" msprop:Generator_ColumnVarNameInTable="columnnTotOrdQty" msprop:Generator_ColumnPropNameInRow="nTotOrdQty" msprop:Generator_ColumnPropNameInTable="nTotOrdQtyColumn" msprop:Generator_UserColumnName="nTotOrdQty" type="xs:int" minOccurs="0" />
+              <xs:element name="cBuyer_Name" msprop:Generator_ColumnVarNameInTable="columncBuyer_Name" msprop:Generator_ColumnPropNameInRow="cBuyer_Name" msprop:Generator_ColumnPropNameInTable="cBuyer_NameColumn" msprop:Generator_UserColumnName="cBuyer_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mr_Cut_Fabrics_Closing_Rpt" msprop:Generator_TableClassName="Mr_Cut_Fabrics_Closing_RptDataTable" msprop:Generator_TableVarName="tableMr_Cut_Fabrics_Closing_Rpt" msprop:Generator_RowChangedName="Mr_Cut_Fabrics_Closing_RptRowChanged" msprop:Generator_TablePropName="Mr_Cut_Fabrics_Closing_Rpt" msprop:Generator_RowDeletingName="Mr_Cut_Fabrics_Closing_RptRowDeleting" msprop:Generator_RowChangingName="Mr_Cut_Fabrics_Closing_RptRowChanging" msprop:Generator_RowEvHandlerName="Mr_Cut_Fabrics_Closing_RptRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Cut_Fabrics_Closing_RptRowDeleted" msprop:Generator_RowClassName="Mr_Cut_Fabrics_Closing_RptRow" msprop:Generator_UserTableName="Mr_Cut_Fabrics_Closing_Rpt" msprop:Generator_RowEvArgName="Mr_Cut_Fabrics_Closing_RptRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cCmpName" msprop:Generator_ColumnVarNameInTable="columncCmpName" msprop:Generator_ColumnPropNameInRow="cCmpName" msprop:Generator_ColumnPropNameInTable="cCmpNameColumn" msprop:Generator_UserColumnName="cCmpName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cBuyer_Name" msprop:Generator_ColumnVarNameInTable="columncBuyer_Name" msprop:Generator_ColumnPropNameInRow="cBuyer_Name" msprop:Generator_ColumnPropNameInTable="cBuyer_NameColumn" msprop:Generator_UserColumnName="cBuyer_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cStyleNo" msprop:Generator_ColumnVarNameInTable="columncStyleNo" msprop:Generator_ColumnPropNameInRow="cStyleNo" msprop:Generator_ColumnPropNameInTable="cStyleNoColumn" msprop:Generator_UserColumnName="cStyleNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cColour" msprop:Generator_ColumnVarNameInTable="columncColour" msprop:Generator_ColumnPropNameInRow="cColour" msprop:Generator_ColumnPropNameInTable="cColourColumn" msprop:Generator_UserColumnName="cColour" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fc_ordqty" msprop:Generator_ColumnVarNameInTable="columnfc_ordqty" msprop:Generator_ColumnPropNameInRow="fc_ordqty" msprop:Generator_ColumnPropNameInTable="fc_ordqtyColumn" msprop:Generator_UserColumnName="fc_ordqty" type="xs:int" minOccurs="0" />
+              <xs:element name="fn_desc" msprop:Generator_ColumnVarNameInTable="columnfn_desc" msprop:Generator_ColumnPropNameInRow="fn_desc" msprop:Generator_ColumnPropNameInTable="fn_descColumn" msprop:Generator_UserColumnName="fn_desc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fc_consump" msprop:Generator_ColumnVarNameInTable="columnfc_consump" msprop:Generator_ColumnPropNameInRow="fc_consump" msprop:Generator_ColumnPropNameInTable="fc_consumpColumn" msprop:Generator_UserColumnName="fc_consump" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fc_rqrdqty" msprop:Generator_ColumnVarNameInTable="columnfc_rqrdqty" msprop:Generator_ColumnPropNameInRow="fc_rqrdqty" msprop:Generator_ColumnPropNameInTable="fc_rqrdqtyColumn" msprop:Generator_UserColumnName="fc_rqrdqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fc_rcvdqty" msprop:Generator_ColumnVarNameInTable="columnfc_rcvdqty" msprop:Generator_ColumnPropNameInRow="fc_rcvdqty" msprop:Generator_ColumnPropNameInTable="fc_rcvdqtyColumn" msprop:Generator_UserColumnName="fc_rcvdqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fc_rtnqty" msprop:Generator_ColumnVarNameInTable="columnfc_rtnqty" msprop:Generator_ColumnPropNameInRow="fc_rtnqty" msprop:Generator_ColumnPropNameInTable="fc_rtnqtyColumn" msprop:Generator_UserColumnName="fc_rtnqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fc_cutqty" msprop:Generator_ColumnVarNameInTable="columnfc_cutqty" msprop:Generator_ColumnPropNameInRow="fc_cutqty" msprop:Generator_ColumnPropNameInTable="fc_cutqtyColumn" msprop:Generator_UserColumnName="fc_cutqty" type="xs:int" minOccurs="0" />
+              <xs:element name="fc_remarks" msprop:Generator_ColumnVarNameInTable="columnfc_remarks" msprop:Generator_ColumnPropNameInRow="fc_remarks" msprop:Generator_ColumnPropNameInTable="fc_remarksColumn" msprop:Generator_UserColumnName="fc_remarks" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mr_Cutting_Closing_Style_Line_Wise_Report" msprop:Generator_TableClassName="Mr_Cutting_Closing_Style_Line_Wise_ReportDataTable" msprop:Generator_TableVarName="tableMr_Cutting_Closing_Style_Line_Wise_Report" msprop:Generator_TablePropName="Mr_Cutting_Closing_Style_Line_Wise_Report" msprop:Generator_RowDeletingName="Mr_Cutting_Closing_Style_Line_Wise_ReportRowDeleting" msprop:Generator_RowChangingName="Mr_Cutting_Closing_Style_Line_Wise_ReportRowChanging" msprop:Generator_RowEvHandlerName="Mr_Cutting_Closing_Style_Line_Wise_ReportRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Cutting_Closing_Style_Line_Wise_ReportRowDeleted" msprop:Generator_UserTableName="Mr_Cutting_Closing_Style_Line_Wise_Report" msprop:Generator_RowChangedName="Mr_Cutting_Closing_Style_Line_Wise_ReportRowChanged" msprop:Generator_RowEvArgName="Mr_Cutting_Closing_Style_Line_Wise_ReportRowChangeEvent" msprop:Generator_RowClassName="Mr_Cutting_Closing_Style_Line_Wise_ReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BTStyleCode" msprop:Generator_ColumnVarNameInTable="columnBTStyleCode" msprop:Generator_ColumnPropNameInRow="BTStyleCode" msprop:Generator_ColumnPropNameInTable="BTStyleCodeColumn" msprop:Generator_UserColumnName="BTStyleCode" type="xs:int" minOccurs="0" />
+              <xs:element name="InQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInQty" msprop:Generator_ColumnPropNameInRow="InQty" msprop:Generator_ColumnPropNameInTable="InQtyColumn" msprop:Generator_UserColumnName="InQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BTLineDes" msprop:Generator_ColumnVarNameInTable="columnBTLineDes" msprop:Generator_ColumnPropNameInRow="BTLineDes" msprop:Generator_ColumnPropNameInTable="BTLineDesColumn" msprop:Generator_UserColumnName="BTLineDes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BTStyle" msprop:Generator_ColumnVarNameInTable="columnBTStyle" msprop:Generator_ColumnPropNameInRow="BTStyle" msprop:Generator_ColumnPropNameInTable="BTStyleColumn" msprop:Generator_UserColumnName="BTStyle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="inputdate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columninputdate" msprop:Generator_ColumnPropNameInRow="inputdate" msprop:Generator_ColumnPropNameInTable="inputdateColumn" msprop:Generator_UserColumnName="inputdate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,23 @@
+
+Convert BTScanStatus char(1) to bit
+update BundleTicket_Input set BTScanStatus=0
+
+==================================
+Mr_Input_Cut_Panel_Ref_Barcode_Save
+
+S = 0
+
+======================================
+Mr_Create_Sewing_Barcode
+Mr_Create_NeedlePass_Barcode
+
+ EXEC Mr_Create_Sewing_Barcode @InputRef
+
+================================
+Mr_Input_Cut_Panel_Ref_Barcode_Save
+
+Mr_ScanBarcode_Sewing_Production
+Mr_ScanBarcode_Needle_Pass
+Mr_ScanBarcode_Sewing_View
+
+======================================

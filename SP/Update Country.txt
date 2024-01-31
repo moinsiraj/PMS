@@ -1,0 +1,7 @@
+	UPDATE BundleTicket set  BundleTicket.CountryID=CT.nConCode
+
+	from BundleTicket  BT Inner Join 
+
+	SpecFo.dbo.Smt_Counrys CT
+
+	on BT.Country =CT.cConDes

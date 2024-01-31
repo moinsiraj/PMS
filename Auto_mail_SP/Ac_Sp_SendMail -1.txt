@@ -1,0 +1,400 @@
+USE [Smartcode]
+GO
+/****** Object:  StoredProcedure [dbo].[Ac_Sp_SendMail]    Script Date: 3/1/2021 10:37:26 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[Ac_Sp_SendMail]
+as
+
+
+DECLARE @HTML varchar(MAX)
+DECLARE @CompanyName varchar(40)
+DECLARE @Compid int
+set @Compid=2
+DECLARE @LineNo as int
+DECLARE @XLineNo as int
+DECLARE @LineCount as int
+DECLARE @LineTotCount as int
+DECLARE @Line varchar(25)
+DECLARE @LineX varchar(25)
+DECLARE @Buyer varchar(50)
+DECLARE @Style varchar(50)
+DECLARE @GmetDis varchar(25)
+DECLARE @Price decimal(18,3)
+DECLARE @Qty int
+DECLARE @LineFullTotQty int
+DECLARE @LineTotQty int
+DECLARE @Earn decimal(18,2)
+DECLARE @LineTotEarn decimal(18,2)
+DECLARE @DayTarget  int
+DECLARE @LineDayTarget  int
+DECLARE @DayFullTotTarget  int
+DECLARE @Balance  int
+DECLARE @WorkH int
+DECLARE @KPI decimal(18,2)
+
+DECLARE @TotQty int
+DECLARE @TotTarget int
+DECLARE @TotWorkH int
+DECLARE @TotEarn decimal(18,2)
+DECLARE @FullTotEarn decimal(18,2)
+
+DECLARE @XLineTotQty decimal(18,2)
+DECLARE @XDayTarget decimal(18,2)
+
+set @FullTotEarn=0
+set @LineDayTarget=0
+set @LineFullTotQty =0
+set @DayFullTotTarget = 0
+set @LineCount=0
+set @LineTotCount=0
+set @LineX =''
+set @TotQty=0
+set @TotTarget=0
+set @LineTotQty=0
+set @Balance=0
+set @TotEarn=0
+set @LineTotEarn=0
+set @DayTarget=0
+set @WorkH=0
+set @TotWorkH =0
+set @KPI=0
+
+SELECT  @CompanyName = cCmpName FROM SpecFo.dbo.Smt_Company WHERE nCompanyID=@Compid
+
+Select @HTML = ' <table width="1000" >
+        <tr>
+            <td  colspan="11" bgcolor="3366FF">
+                <center><font size="5" color="White" ><strong>GOLDSTAR GROUP OF INDUSTRIES</strong></font></center></td>
+        </tr>
+        <tr>
+            <td  colspan="11">
+                <strong>PRODUCTION DAY SUMMARY AS AT - ' + CONVERT(VARCHAR(20), GETDATE(), 100) + '</strong></td>
+        </tr>
+        <tr>
+            <td colspan="11">
+            Factory : ' + @CompanyName +'
+            </td>
+        </tr>
+        
+        
+        <tr>
+            <td colspan="11">
+                <table border="1" width="990">
+                    <tr>
+                        <td bgcolor="66CCFF" align="center" width="100">
+                            LINE</td>
+                        <td bgcolor="66CCFF" align="center" width="100">
+                            BUYER</td>    
+                        <td bgcolor="66CCFF" align="center" width="100">
+                            STYLE NO.</td>
+                        <td bgcolor="66CCFF" align="center" width="100">
+                            ITEM</td>
+                        <td bgcolor="66CCFF" align="center" width="100">
+                            FOB</td>
+                        <td bgcolor="66CCFF" align="center" width="100">
+                            QC OUT</td>
+                        <td bgcolor="66CCFF" align="center" width="100">
+                            LINE TOT</td>
+                        <td bgcolor="66CCFF" align="center" width="100">
+                            TARGET</td>
+                        <td bgcolor="66CCFF" align="center" width="100">
+                            BALANCE</td>
+                        <td bgcolor="66CCFF" align="center" width="100">
+                            TOT FOB$</td>
+                        <td bgcolor="66CCFF" align="center" width="100">
+                            WHRS</td>                                                   
+                    </tr>'
+
+
+DECLARE Line_Cursor CURSOR FOR SELECT Line_Code  FROM [SpecFo].[dbo].[Smt_Line]   where [CompanyID]=@Compid   order by [Line_Code]
+
+OPEN Line_Cursor
+
+FETCH NEXT FROM Line_Cursor INTO @XLineNo
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+
+		--- New Update 6 Feb 2016
+		DECLARE PO_Cursor CURSOR FOR SELECT     TOP (100) PERCENT View_Web_ProdSections_1.cSection_Description AS BTLine, SpecFo.dbo.Smt_BuyerName.cBuyer_Name, dbo.BundleTicket.BTStyle, SpecFo.dbo.Smt_GmtType.cGmetDis, MAX(SpecFo.dbo.Smt_StyleMaster.nfob) AS nPrice, SUM(dbo.BundleTicket.BTQty) AS BTQTY, 
+                  MAX(SpecFo.dbo.Smt_StyleMaster.nfob) * SUM(dbo.BundleTicket.BTQty) AS Ern, dbo.Smt_LineDetail.LDayTgt, dbo.Smt_LineDetail.LOfftime, MAX(View_Web_ProdSections_1.nSectionID) AS LID
+FROM        dbo.BundleTicket INNER JOIN
+                  dbo.View_Web_ProdSections ON dbo.BundleTicket.BTLine = dbo.View_Web_ProdSections.nSectionID INNER JOIN
+                  SpecFo.dbo.Smt_StyleMaster ON SpecFo.dbo.Smt_StyleMaster.nStyleID = dbo.BundleTicket.BTStyleCode INNER JOIN
+                  SpecFo.dbo.Smt_BuyerName ON SpecFo.dbo.Smt_StyleMaster.nAcct = SpecFo.dbo.Smt_BuyerName.nBuyer_ID INNER JOIN
+                  SpecFo.dbo.Smt_GmtType ON SpecFo.dbo.Smt_StyleMaster.cGmtType = SpecFo.dbo.Smt_GmtType.nGmtCode INNER JOIN
+                  dbo.View_Web_ProdSections AS View_Web_ProdSections_1 ON dbo.BundleTicket.BTLine = View_Web_ProdSections_1.nSectionID INNER JOIN
+                  dbo.Smt_LineDetail ON dbo.BundleTicket.BTScanDate = dbo.Smt_LineDetail.LDate AND dbo.BundleTicket.BTLine = dbo.Smt_LineDetail.LLineID
+WHERE     (dbo.BundleTicket.BTDescription = 'SEWING QC OUT') AND (BundleTicket.BTScanDate = CONVERT(VARCHAR(11), GETDATE(), 106)) and View_Web_ProdSections_1.nSectionID = @XLineNo and  View_Web_ProdSections_1.CompanyID=2
+GROUP BY dbo.BundleTicket.BTStyleCode, dbo.BundleTicket.BTStyle, dbo.BundleTicket.BTLine, dbo.View_Web_ProdSections.cSection_Description, SpecFo.dbo.Smt_BuyerName.cBuyer_Name, SpecFo.dbo.Smt_GmtType.cGmetDis, View_Web_ProdSections_1.cSection_Description, 
+                  dbo.Smt_LineDetail.LDayTgt, dbo.Smt_LineDetail.LOfftime
+ORDER BY CAST(dbo.BundleTicket.BTLine AS int)
+
+
+
+		OPEN PO_Cursor
+
+		SELECT @LineTotCount = @@CURSOR_ROWS 
+
+
+		FETCH NEXT FROM PO_Cursor INTO @Line,@Buyer,@Style,@GmetDis,@Price,@Qty,@Earn,@DayTarget,@WorkH,@LineNo
+
+		WHILE @@FETCH_STATUS = 0
+		BEGIN
+
+		SET @LineCount = @LineCount + 1
+		--------------------------
+			SET @TotQty = @TotQty + @Qty
+			SET @LineTotEarn = @LineTotEarn + @Earn
+			SET @FullTotEarn = @FullTotEarn + @Earn
+			SET @LineFullTotQty = @LineFullTotQty + @Qty
+				
+			IF @LineTotCount=1
+			BEGIN
+				SET @LineDayTarget = @LineDayTarget + @DayTarget
+				SET @DayFullTotTarget = @DayFullTotTarget + @DayTarget
+				SET @LineTotQty = @LineTotQty + @Qty
+				--SET @LineTotEarn = @LineTotEarn + @Earn
+				--SET @TotTarget = @TotTarget + @DayTarget
+				SET @Balance = @LineTotQty - @DayTarget
+				--SET @TotWorkH = @TotWorkH + @WorkH
+				SET @XLineTotQty = @LineTotQty
+				SET @XDayTarget = @DayTarget
+				SET @KPI = (@XLineTotQty / @XDayTarget) * 100
+
+				-----------------------------------------		
+
+					Select @HTML = @HTML + '<tr> <td align="center">
+												'+CONVERT(VARCHAR,@Line,1)+'</td>
+											<td align="center">
+												'+CONVERT(VARCHAR,@Buyer,1)+'</td>	
+											<td align="left">
+												'+CONVERT(VARCHAR,@Style,1)+'</td>
+											<td align="center">
+												'+CONVERT(VARCHAR,@GmetDis,1)+'</td>
+											<td align="right">
+												'+CONVERT(VARCHAR,@Price,1)+'</td>
+											<td align="right">
+												'+CONVERT(VARCHAR,@Qty,1)+'</td>
+											<td align="right">
+												'+CONVERT(VARCHAR,@LineTotQty,1)+'</td>      
+											<td align="right">
+												'+CONVERT(VARCHAR,@DayTarget,1)+'</td>
+											<td align="right">
+												'+CONVERT(VARCHAR,@Balance,1)+'</td>
+											<td align="right">
+												'+CONVERT(VARCHAR,@LineTotEarn,1)+'</td>			  
+											<td align="center">
+												'+CONVERT(VARCHAR,@WorkH,1)+'</td>
+											</tr>'
+										
+			
+										
+			END
+			ELSE
+				
+			BEGIN
+				SET @LineTotQty = @LineTotQty + @Qty
+				--SET @LineTotEarn = @Earn
+				SET @TotTarget = @TotTarget + @DayTarget
+				SET @LineX=@Line
+				SET @Balance = @LineTotQty - @DayTarget
+				SET @TotWorkH = @TotWorkH + @WorkH
+				SET @XLineTotQty = @LineTotQty
+				SET @XDayTarget = @DayTarget
+				SET @KPI = (@XLineTotQty / @XDayTarget) * 100
+				-------------------------------------------
+				IF @LineCount=1
+				BEGIN
+				Select @HTML = @HTML + '<tr>
+												<td align="center">
+													'+CONVERT(VARCHAR,@Line,1)+'</td>
+												<td align="center">
+													'+CONVERT(VARCHAR,@Buyer,1)+'</td>	
+												<td align="left">
+													'+CONVERT(VARCHAR,@Style,1)+'</td>
+												<td align="center">
+													'+CONVERT(VARCHAR,@GmetDis,1)+'</td>
+												<td align="right">
+													'+CONVERT(VARCHAR,@Price,1)+'</td>
+												<td align="right">
+													'+CONVERT(VARCHAR,@Qty,1)+'</td>
+												<td align="right">
+													</td>      
+												<td align="right">
+													</td>
+												<td align="right">
+													</td>
+												<td align="right">
+													</td>			  
+												<td align="center">
+												</td>
+												
+											</tr>'
+				END
+				ELSE
+				BEGIN 
+						IF @LineCount<=@LineTotCount-1
+						BEGIN
+						
+								Select @HTML = @HTML + '<tr>
+														<td align="center">
+															</td>
+														<td align="center">
+															</td>	
+														<td align="left">
+															'+CONVERT(VARCHAR,@Style,1)+'</td>
+														<td align="center">
+															'+CONVERT(VARCHAR,@GmetDis,1)+'</td>
+														<td align="right">
+															'+CONVERT(VARCHAR,@Price,1)+'</td>
+														<td align="right">
+															'+CONVERT(VARCHAR,@Qty,1)+'</td>
+														<td align="right">
+															</td>      
+														<td align="right">
+															</td>
+														<td align="right">
+															</td>
+														<td align="right">
+															</td>			  
+														<td align="center">
+														</td>
+														
+													</tr>'
+						END
+						ELSE 
+						BEGIN
+						SET @DayFullTotTarget = @DayFullTotTarget + @DayTarget
+						Select @HTML = @HTML + '<tr>
+														<td align="center">
+															</td>
+														<td align="center">
+															</td>	
+														<td align="left">
+															'+CONVERT(VARCHAR,@Style,1)+'</td>
+														<td align="center">
+															'+CONVERT(VARCHAR,@GmetDis,1)+'</td>
+														<td align="right">
+															'+CONVERT(VARCHAR,@Price,1)+'</td>
+														<td align="right">
+															'+CONVERT(VARCHAR,@Qty,1)+'</td>
+														<td align="right">
+															'+CONVERT(VARCHAR,@LineTotQty,1)+'</td>      
+														<td align="right">
+															'+CONVERT(VARCHAR,@DayTarget,1)+'</td>
+														<td align="right">
+															'+CONVERT(VARCHAR,@Balance,1)+'</td>
+														<td align="right">
+															'+CONVERT(VARCHAR,@LineTotEarn,1)+'</td>			  
+														<td align="center">
+															'+CONVERT(VARCHAR,@WorkH,1)+'</td>
+														
+													</tr>'
+						END		
+				END	
+			END
+			
+
+			  FETCH NEXT FROM PO_Cursor INTO @Line,@Buyer,@Style,@GmetDis,@Price,@Qty,@Earn,@DayTarget,@WorkH,@LineNo 
+		END
+
+		CLOSE PO_Cursor
+		DEALLOCATE PO_Cursor
+
+	  SET @LineTotEarn = 0
+	  SET @LineCount = 0
+	  SET @LineTotQty = 0
+      FETCH NEXT FROM Line_Cursor INTO @XLineNo
+END
+CLOSE Line_Cursor
+DEALLOCATE Line_Cursor
+
+
+Select @HTML = @HTML + '<tr>
+                        <td bgcolor="66CCFF" align="center">
+                            </td>
+                        <td bgcolor="66CCFF" align="center">
+                            </td>    
+                        <td bgcolor="66CCFF" align="left">
+                            </td>
+                        <td bgcolor="66CCFF" align="center">
+                            </td>
+                        <td bgcolor="66CCFF" align="right">
+                            </td>
+                        <td bgcolor="66CCFF" align="right">
+                            </td>
+                        <td bgcolor="66CCFF" align="right">
+                            '+CONVERT(VARCHAR,@LineFullTotQty,1)+'</td> 
+                        <td bgcolor="66CCFF" align="right">
+                            '+CONVERT(VARCHAR,@DayFullTotTarget,1)+'</td>
+                        <td bgcolor="66CCFF" align="right">
+                            '+CONVERT(VARCHAR,@LineFullTotQty-@DayFullTotTarget,1)+'</td>
+                        <td bgcolor="66CCFF" align="right">
+                            '+CONVERT(VARCHAR,@FullTotEarn,1)+'</td> 
+                        <td bgcolor="66CCFF" align="center">
+										</td>
+						                          
+                    </tr>                    
+                '
+                
+Select @HTML = @HTML + '</table>
+            </td>
+        </tr>        
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>    
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+            <td align="center">
+										</td>
+									    
+                                     
+        </tr>
+    </table>'
+
+Select @HTML =@HTML + '<br><br>This is an Auto Generated mail by the ERP System.'
+
+declare @Subjet varchar(200)
+declare @Btitle varchar(50)
+
+set @Subjet ='GOLDSTAR GROUP OF INDUSTRIES  - PRODUCTION DAY SUMMARY AS AT ' + CONVERT(VARCHAR(20), GETDATE(), 100)
+
+
+EXEC msdb.dbo.sp_send_dbmail @profile_name='slms',
+@recipients='engr.moin1@gmail.com',
+@copy_recipients='monir.erp@spectrumlanka.com;aminda@spectrumlanka.com;zaman@goldstargroupbd.com;alam@goldstargroupbd.com;masud@goldstargroupbd.com;rezaul@goldstargroupbd.com;jewel@goldstargroupbd.com;shahidul@goldstargroupbd.com;fayez@goldstargroupbd.com;mohi@goldstargroupbd.com;sukumar@goldstargroupbd.com;motiur@goldstargroupbd.com;shankar@goldstargroupbd.com;mizan@goldstargroupbd.com',
+@blind_copy_recipients='goldstargrouperp@gmail.com',
+@subject=@Subjet,
+@body = @HTML,
+@body_format = 'HTML'
+
+--sanjeev@nazbd.com;moin@nazbd.com
+
+
+
+--specfosoft@gmail.com
+--SpecFo ERP
+--smtp.gmail.com
+--587
+--specfosoft
+

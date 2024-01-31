@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Mr_Style_PO_Country_Line_Rpt" targetNamespace="http://tempuri.org/Mr_Style_PO_Country_Line_Rpt.xsd" xmlns:mstns="http://tempuri.org/Mr_Style_PO_Country_Line_Rpt.xsd" xmlns="http://tempuri.org/Mr_Style_PO_Country_Line_Rpt.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Mr_PMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Mr_PMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Mr_PMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Mr_Style_PO_Country_Line_Rpt" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="Mr_Style_PO_Country_Line_Rpt" msprop:Generator_DataSetName="Mr_Style_PO_Country_Line_Rpt">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Mr_Style_PO_Country_Line_Rpt" msprop:Generator_TableClassName="Mr_Style_PO_Country_Line_RptDataTable" msprop:Generator_TableVarName="tableMr_Style_PO_Country_Line_Rpt" msprop:Generator_TablePropName="_Mr_Style_PO_Country_Line_Rpt" msprop:Generator_RowDeletingName="Mr_Style_PO_Country_Line_RptRowDeleting" msprop:Generator_RowChangingName="Mr_Style_PO_Country_Line_RptRowChanging" msprop:Generator_RowEvHandlerName="Mr_Style_PO_Country_Line_RptRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Style_PO_Country_Line_RptRowDeleted" msprop:Generator_UserTableName="Mr_Style_PO_Country_Line_Rpt" msprop:Generator_RowChangedName="Mr_Style_PO_Country_Line_RptRowChanged" msprop:Generator_RowEvArgName="Mr_Style_PO_Country_Line_RptRowChangeEvent" msprop:Generator_RowClassName="Mr_Style_PO_Country_Line_RptRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cBuyer_Name" msprop:Generator_ColumnVarNameInTable="columncBuyer_Name" msprop:Generator_ColumnPropNameInRow="cBuyer_Name" msprop:Generator_ColumnPropNameInTable="cBuyer_NameColumn" msprop:Generator_UserColumnName="cBuyer_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BTStyle" msprop:Generator_ColumnVarNameInTable="columnBTStyle" msprop:Generator_ColumnPropNameInRow="BTStyle" msprop:Generator_ColumnPropNameInTable="BTStyleColumn" msprop:Generator_UserColumnName="BTStyle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PO_No" msprop:Generator_ColumnVarNameInTable="columnPO_No" msprop:Generator_ColumnPropNameInRow="PO_No" msprop:Generator_ColumnPropNameInTable="PO_NoColumn" msprop:Generator_UserColumnName="PO_No" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BTLineDes" msprop:Generator_ColumnVarNameInTable="columnBTLineDes" msprop:Generator_ColumnPropNameInRow="BTLineDes" msprop:Generator_ColumnPropNameInTable="BTLineDesColumn" msprop:Generator_UserColumnName="BTLineDes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Size" msprop:Generator_ColumnVarNameInTable="columnSize" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_UserColumnName="Size" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Country" msprop:Generator_ColumnVarNameInTable="columnCountry" msprop:Generator_ColumnPropNameInRow="Country" msprop:Generator_ColumnPropNameInTable="CountryColumn" msprop:Generator_UserColumnName="Country" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TInputQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTInputQty" msprop:Generator_ColumnPropNameInRow="TInputQty" msprop:Generator_ColumnPropNameInTable="TInputQtyColumn" msprop:Generator_UserColumnName="TInputQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="InQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInQty" msprop:Generator_ColumnPropNameInRow="InQty" msprop:Generator_ColumnPropNameInTable="InQtyColumn" msprop:Generator_UserColumnName="InQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DaySewQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDaySewQty" msprop:Generator_ColumnPropNameInRow="DaySewQty" msprop:Generator_ColumnPropNameInTable="DaySewQtyColumn" msprop:Generator_UserColumnName="DaySewQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sewQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsewQty" msprop:Generator_ColumnPropNameInRow="sewQty" msprop:Generator_ColumnPropNameInTable="sewQtyColumn" msprop:Generator_UserColumnName="sewQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BTStyleCode" msprop:Generator_ColumnVarNameInTable="columnBTStyleCode" msprop:Generator_ColumnPropNameInRow="BTStyleCode" msprop:Generator_ColumnPropNameInTable="BTStyleCodeColumn" msprop:Generator_UserColumnName="BTStyleCode" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

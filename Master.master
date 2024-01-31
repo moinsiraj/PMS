@@ -1,0 +1,623 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Master.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxtoolkit" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title></title>
+
+    <!--All Css Link-->
+
+    <link href="Content/AdminTemp/plugins/fontawesome-free/css/all.css" rel="stylesheet" />
+    <link href="Content/AdminTemp/plugins/overlayScrollbars/css/OverlayScrollbars.min.css" rel="stylesheet" />
+    <link href="Content/AdminTemp/dist/css/adminlte.min.css" rel="stylesheet" />
+    <link href="Content/AdminTemp/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="Content/AdminTemp/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href="Content/sweetalert/sweetalert.min.css" rel="stylesheet" />
+    <link href="Content/AdminTemp/plugins/sweetalert2/toastr.min.css" rel="stylesheet" />
+    <link href="Content/AdminTemp/themes/base/all.css" rel="stylesheet" />
+
+    <!--End All Css Link-->
+
+    <link rel="shortcut icon" href="gridimage/dg1.png" />
+    <style>
+        .content {
+            display: none;
+        }
+
+        .preload {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            background: #f4f6f9;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+
+    <link rel="shortcut icon" href="gridimage/dg1.png" />
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm sidebar-collapse">
+    <form id="form2" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" AsyncPostBackTimeout="400"></asp:ScriptManager>
+        <div class="preload">
+            <img src="gridimage/Preloder2.gif" />
+        </div>
+        <%--<div class="wrapper">--%>
+        <!-- Navbar -->
+
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+
+            <div class="nav-item">
+                <div class="nav-link">
+                    <b style="font-size: 12px; font-weight: normal; font-weight: 700; color: gray; text-align: right;" class="animate-charcter">DG INFOSYS ERP FOR </b>
+                    <asp:Label ID="lblComName" Style="font-size: 12px; text-align: left; color: #2E9AFE; font-weight: 700" runat="server"></asp:Label>
+                </div>
+            </div>
+
+
+            <% %>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+
+
+                    <a class="nav-link" data-toggle="dropdown" href="#" title="Log Of Accounts">Options <i class="fas fa-arrow-down"></i></a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="min-width: 200px; margin: 0.125rem -46px 0px; margin-right: 2px">
+                        <a href="R2m_Mainhome.aspx" class="dropdown-item dropdown-header"><i class="fas fa-home"></i>Home Page</a>
+                        <div class="dropdown-divider"></div>
+                        <%--<a href="R2m_ChangePassword.aspx" class="dropdown-item dropdown-header"><i class="fas fa-key"></i>Change Password</a>--%>
+                        <a href="R2m_DashBoard.aspx" class="dropdown-item dropdown-header"><i class="fas fa-wave-square"></i>Dash Board</a>
+                        <div class="dropdown-divider"></div>
+                        <asp:LinkButton class="dropdown-item dropdown-header" ID="linkLogOff" OnClientClick="javascript:return confirm('Do you want to Log Off');" OnClick="linkLogOff_OnClick" runat="server"><i class="fas fa-sign-out-alt mr-2"></i> Log Off</asp:LinkButton>
+                    </div>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- End Navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-link">
+                <img src="gridimage/dg1.png" alt="dg-info-logo" class="brand-image img-circle elevation-3" style="opacity: .8" />
+                <span class="brand-text" style="font-weight: 400; font-size: 12px;">MAIN MENU</span>
+            </a>
+
+            <div class="sidebar">
+
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <i class="far fa-user-circle fa-2x text-white" style="color: #33ADFF"></i>
+                    </div>
+                    <div class="info">
+
+                        <asp:Label ID="lnkUsrName" class="d-block" runat="server" ForeColor="White"></asp:Label>
+                    </div>
+                </div>
+                <!-- Menu For Purchase Order-->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+                        <li id="LPOS0" runat="server" class="nav-item has-treeview">
+                            <a id="APOS0" runat="server" href="#" class="nav-link">Cutting</a>
+                            <ul class="nav nav-treeview">
+                                <li id="LPOS1" runat="server" class="nav-item">
+                                    <a id="APOS1" runat="server" href="R2m_Cutmaster.aspx" class="nav-link">Cut Master</a>
+                                </li>
+                                <li id="LPOS2" runat="server" class="nav-item">
+                                    <a id="APOS2" runat="server" href="R2m_Cutting.aspx" class="nav-link">Cutting-Lay-Ratio</a>
+                                </li>
+                                <li id="LPOS3" runat="server" class="nav-item">
+                                    <a id="APOS3" runat="server" href="R2m_Cutting_App.aspx" class="nav-link">Cutting Approval</a>
+                                </li>
+
+                                <li id="LPOS4" runat="server" class="nav-item">
+                                    <a id="APOS4" runat="server" href="R2m_Send_Receive_Print_EMB.aspx" class="nav-link">Print/Embroidery</a>
+                                </li>
+
+                                <li id="LPOS5" runat="server" class="nav-item">
+                                    <a id="APOS5" runat="server" href="R2m_Template_Production.aspx" class="nav-link">Template</a>
+                                </li>
+
+                                <li id="LPOS6" runat="server" class="nav-item">
+                                    <a id="APOS6" runat="server" href="R2m_Input_Cut_Panel.aspx" class="nav-link">Input Cut Panel</a>
+                                </li>
+                                <li id="LSCAN1" runat="server" class="nav-item">
+                                    <a id="ASCAN1" runat="server" href="R2m_Generate_Barcode.aspx" class="nav-link">Generate Barcode</a>
+                                </li>
+                                <li id="LINPUT1" runat="server" class="nav-item">
+                                    <a id="AINPUT1" runat="server" href="R2m_Input_Approval.aspx" class="nav-link">Input Approval</a>
+                                </li>
+                                  <li id="LSCAN4" runat="server" class="nav-item">
+                                    <a id="ASCAN4" runat="server" href="R2m_Input_Barcode_Approval.aspx" class="nav-link">Barcode Approval</a>
+                                </li>
+                                <li id="LINPUT2" runat="server" class="nav-item">
+                                    <a id="AINPUT2" runat="server" href="R2m_CutFabricsUpdate.aspx" class="nav-link">Fabric Closing</a>
+                                </li>
+                                <li id="LPOS7" runat="server" class="nav-item">
+
+                                    <a id="APOS7" runat="server" href="R2m_Cutting_Report.aspx" class="nav-link">Cutting Report</a>
+                                </li>
+
+                                <li id="LPOS8" runat="server" class="nav-item has-treeview">
+                                    <a id="APOS8" runat="server" href="R2m_Input_Report.aspx" class="nav-link">Input Report</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+
+
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+
+                        <li id="LPOS9" runat="server" class="nav-item has-treeview">
+                            <a id="APOS9" runat="server" href="#" class="nav-link">Sewing</a>
+                            <ul class="nav nav-treeview">
+                                <li id="LPOS10" runat="server" class="nav-item">
+                                    <a id="APOS10" runat="server" href="R2m_Sewing_Production.aspx" class="nav-link">Sewing Production</a>
+                                </li>
+
+                                 <li id="LSCAN2" runat="server" class="nav-item">
+<%--                                    <a id="ASCAN2" runat="server" href="http://192.168.12.225:3001/BarcodeScan/RS5" target="_blank" class="nav-link">Scan QC Sewing Pass Barcode</a>--%>
+                                              <a id="ASCAN2" runat="server" href="R2m_Scan_Barcode_Sewing.aspx" target="_blank" class="nav-link">Scan QC Sewing Pass Barcode</a>
+                               
+                                </li>
+
+                                <li id="LPOS11" runat="server" class="nav-item">
+                                    <a id="APOS11" runat="server" href="R2m_Send_Receive_Wash.aspx" class="nav-link">Wash</a>
+                                </li>
+                                <li id="LPOS15" runat="server" class="nav-item">
+                                    <a id="APOS15" runat="server" href="R2m_Line_Details.aspx" class="nav-link">Line Details</a>
+                                </li>
+                                <li id="LSMV" runat="server" class="nav-item">
+                                    <a id="ASMV" runat="server" href="R2m_Production_SMV.aspx" class="nav-link">SMV</a>
+                                </li>
+                                <li id="LPB" runat="server" class="nav-item">
+                                    <a id="APB" runat="server" href="R2m_NoScanBarcodePrint.aspx" class="nav-link">Print No Scan Barcode</a>
+                                </li>
+                                <li id="LPOS16" runat="server" class="nav-item">
+                                    <a id="APOS16" runat="server" href="R2m_Convert_Hour.aspx" class="nav-link">Convert Hourly Production</a>
+                                </li>
+
+                                <li id="LPOS17" runat="server" class="nav-item">
+                                    <a id="APOS17" runat="server" href="R2m_Hourly_Production.aspx" class="nav-link">Hourly Production</a>
+                                </li>
+                                <li id="LPOS18" runat="server" class="nav-item">
+                                    <a id="APOS18" runat="server" href="R2m_Sewing_Report.aspx" class="nav-link">Sewing Report</a>
+
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+
+                        <li id="LFIN1" runat="server" class="nav-item has-treeview">
+                            <a id="AFIN1" runat="server" href="#" class="nav-link">Finishing</a>
+                            <ul class="nav nav-treeview">
+
+                                <li id="LFIN2" runat="server" class="nav-item">
+                                    <a id="AFIN2" runat="server" href="R2m_P_Finishing.aspx" class="nav-link">Finising Input</a>
+                                </li>
+                                 <li id="LSCAN3" runat="server" class="nav-item">
+                                    <a id="ASCAN3" runat="server" href="R2m_Scan_Barcode_NeedlePass.aspx" class="nav-link">Scan Needle Pass-Barcode</a>
+                                </li>
+                                <li id="LFIN3" runat="server" class="nav-item">
+                                    <a id="AFIN3" runat="server" href="R2m_Packing.aspx" class="nav-link">Packing</a>
+                                </li>
+                                <li id="LFIN4" runat="server" class="nav-item">
+                                    <a id="AFIN4" runat="server" href="R2m_Finishing_Report.aspx" class="nav-link">Finishing Report</a>
+                                </li>
+
+                                <li id="LFIN5" runat="server" class="nav-item">
+                                    <a id="AFIN5" runat="server" href="R2m_Packing_Report.aspx" class="nav-link">Packing Report</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+                        <li id="LPOS19" runat="server" class="nav-item has-treeview">
+                            <a id="APOS19" runat="server" href="#" class="nav-link">Export</a>
+                            <ul class="nav nav-treeview">
+                                <li id="LPOS20" runat="server" class="nav-item">
+                                    <a id="APOS20" runat="server" href="R2m_Packing_List.aspx" class="nav-link">Packing List</a>
+                                </li>
+                                <li id="LEXCH1" runat="server" class="nav-item">
+                                    <a id="AEXCH1" runat="server" href="R2m_Export_Challan_Gate_Pass.aspx" class="nav-link">Export Challan/Gate Pass</a>
+                                </li>
+                                <li id="LEXCH2" runat="server" class="nav-item">
+                                    <a id="AEXCH2" runat="server" href="R2m_Export_Approval.aspx" class="nav-link">For Approval</a>
+                                </li>
+                                <li id="LEXCH3" runat="server" class="nav-item">
+                                    <a id="AEXCH3" runat="server" href="R2m_Export_Report.aspx" class="nav-link">Export Report</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+                        <li id="LMRPT1" runat="server" class="nav-item has-treeview">
+                            <a id="AMRPT1" runat="server" href="#" class="nav-link">Production Report</a>
+                            <ul class="nav nav-treeview">
+                                <li id="LMRPT2" runat="server" class="nav-item">
+                                    <a id="AMRPT2" runat="server" href="R2m_M_Cutting_Report.aspx" class="nav-link">Cutting_Report</a>
+                                </li>
+                                <li id="LMRPT3" runat="server" class="nav-item">
+                                    <a id="AMRPT3" runat="server" href="R2m_M_Input_Report.aspx" class="nav-link">Input_Report</a>
+                                </li>
+                                <li id="LMRPT4" runat="server" class="nav-item">
+                                    <a id="AMRPT4" runat="server" href="R2m_M_Sewing_Report.aspx" class="nav-link">Sewing_Report</a>
+                                </li>
+                                <li id="LMRPT5" runat="server" class="nav-item">
+                                    <a id="AMRPT5" runat="server" href="R2m_M_Finishing_Report.aspx" class="nav-link">Finishing_Report</a>
+                                </li>
+                                <li id="LMRPT6" runat="server" class="nav-item">
+                                    <a id="AMRPT6" runat="server" href="R2m_M_Packing_Report.aspx" class="nav-link">Packing_Report</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+                        <li id="LPOS21" runat="server" class="nav-item has-treeview">
+                            <a id="APOS21" runat="server" href="#" class="nav-link">Quality</a>
+                            <ul class="nav nav-treeview">
+                                <li id="LPOS22" runat="server" class="nav-item">
+                                    <a id="APOS22" runat="server" href="R2m_Defect_Type.aspx" class="nav-link">Create Defect</a>
+                                </li>
+                                <li id="LPOS23" runat="server" class="nav-item">
+                                    <a id="APOS23" runat="server" href="R2m_DDHU_Entry.aspx" class="nav-link">Daily DHU Entry</a>
+                                </li>
+
+                                <li id="LPOS31" runat="server" class="nav-item">
+                                    <a id="APOS31" runat="server" href="R2m_Reject_Type.aspx" class="nav-link">Create Reject</a>
+                                </li>
+                               <%-- <li id="LPOS32" runat="server" class="nav-item">
+                                    <a id="APOS32" runat="server" href="R2m_Reject_Entry.aspx" class="nav-link">Daily Rejection Entry</a>
+                                </li>--%>
+                                 <li id="LPOS32" runat="server" class="nav-item">
+                                    <a id="APOS32" runat="server" href="R2m_Qlt_Daily_Rejection_Input.aspx" class="nav-link">Daily Rejection Entry</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+                        <li id="LPOS24" runat="server" class="nav-item has-treeview">
+                            <a id="APOS24" runat="server" href="#" class="nav-link">Order In-Hand</a>
+                            <ul class="nav nav-treeview">
+                                <li id="LPOS25" runat="server" class="nav-item">
+                                    <a id="APOS25" runat="server" href="R2m_Order_Booking.aspx" class="nav-link">Order Booking</a>
+                                </li>
+                                <li id="LPOS26" runat="server" class="nav-item">
+                                    <a id="APOS26" runat="server" href="R2m_Ord_In_Hand_Report.aspx" class="nav-link">Report</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+                        <li id="LPOS27" runat="server" class="nav-item has-treeview">
+                            <a id="APOS27" runat="server" href="#" class="nav-link">Expences-CM</a>
+                            <ul class="nav nav-treeview">
+                                <li id="LPOS28" runat="server" class="nav-item">
+                                    <a id="APOS28" runat="server" href="R2m_Line_Expences.aspx" class="nav-link">Line Wise Expences</a>
+                                </li>
+                                <li id="LPOS29" runat="server" class="nav-item">
+                                    <a id="APOS29" runat="server" href="R2m_Style_Wise_CM.aspx" class="nav-link">Style Wise CM</a>
+                                </li>
+                                <li id="LPOS30" runat="server" class="nav-item">
+                                    <a id="APOS30" runat="server" href="R2m_CM_Report.aspx" class="nav-link">CM Earning Report</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+                        <li id="LSCM1" runat="server" class="nav-item has-treeview">
+                            <a id="ASCM1" runat="server" href="#" class="nav-link">SCM</a>
+                            <ul class="nav nav-treeview">
+                                <li id="LSCM2" runat="server" class="nav-item">
+                                    <a id="ASCM2" runat="server" href="R2m_Supplier_Info.aspx" class="nav-link">Supplier Info</a>
+                                </li>
+                                <li id="LSCM3" runat="server" class="nav-item">
+                                    <a id="ASCM3" runat="server" href="R2m_Supplier_Approval.aspx" class="nav-link">Supplier For Approval</a>
+                                </li>
+                                <li id="LSCM4" runat="server" class="nav-item">
+                                    <a id="ASCM4" runat="server" href="R2m_Master_Setup.aspx" class="nav-link">Master Setting</a>
+                                </li>
+                                   <li id="LSCM5" runat="server" class="nav-item">
+                                    <a id="ASCM5" runat="server" href="R2m_SCM_PC.aspx" class="nav-link">Price Comparison</a>
+                                </li>
+                                   <li id="LSCM6" runat="server" class="nav-item">
+                                    <a id="ASCM6" runat="server" href="R2m_SCM_PC_For_Approval.aspx" class="nav-link">CS-For-Approval</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+                        <li id="LAST1" runat="server" class="nav-item has-treeview">
+                            <a id="AAST1" runat="server" href="#" class="nav-link">Assets</a>
+                            <ul class="nav nav-treeview">
+                                <li id="LAST2" runat="server" class="nav-item">
+                                    <a id="AAST2" runat="server" href="R2m_AssetMaster.aspx" class="nav-link">Add New Asset</a>
+                                </li>
+                                <li id="LAST3" runat="server" class="nav-item">
+                                    <a id="AAST3" runat="server" href="R2m_Asset_Rent.aspx" class="nav-link">Add Rented Asset</a>
+                                </li>
+                                <li id="LAST4" runat="server" class="nav-item">
+                                    <a id="AAST4" runat="server" href="R2m_Asset_Rent_Return.aspx" class="nav-link">Rented Asset Return</a>
+                                </li>
+                                <li id="LAST5" runat="server" class="nav-item">
+                                    <a id="AAST5" runat="server" href="R2m_Asset_Rent_Return_Approval.aspx" class="nav-link">Rented Asset Approval</a>
+                                </li>
+
+                                <li id="LAST6" runat="server" class="nav-item">
+                                    <a id="AAST6" runat="server" href="R2m_Asset_Transfer.aspx" class="nav-link">Asset Transfer</a>
+                                </li>
+                                <li id="LAST7" runat="server" class="nav-item">
+                                    <a id="AAST7" runat="server" href="R2m_Asset_Transfer_Approval.aspx" class="nav-link">Fixed Asset Approval</a>
+                                </li>
+
+                                <li id="LAST8" runat="server" class="nav-item">
+                                    <a id="AAST8" runat="server" href="R2m_Asset_RunningRepairing.aspx" class="nav-link">Running Repair</a>
+                                </li>
+                              
+
+                                <li id="LAST9" runat="server" class="nav-item">
+                                    <a id="AAST9" runat="server" href="R2m_Asset_ScheduleMaintenance.aspx" class="nav-link">Schedule Maintenance</a>
+                                </li>
+
+                               
+                                <li id="LAST10" runat="server" class="nav-item">
+                                    <a id="AAST10" runat="server" href="R2m_Asset_Report.aspx" class="nav-link">Report</a>
+                                </li>
+                                   <li id="LAST11" runat="server" class="nav-item">
+                                    <a id="AAST11" runat="server" href="R2m_Asset_GenerateQRCode.aspx" class="nav-link">Generate QR Code</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="small">
+                Version: dg-infosys-1.3
+                 <asp:Label ID="Label2" runat="server" CssClass="small"></asp:Label><br />
+
+                IP Address:<asp:Label ID="lblIpAddress" runat="server" CssClass="small"></asp:Label><br />
+                MAC Address:
+                <asp:Label ID="Label1" runat="server" CssClass="small"></asp:Label>
+                <asp:Label ID="Loginuser" runat="server" Visible="false"></asp:Label><br />
+            </div>
+        </aside>
+        <!-- End Main Sidebar Container -->
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <div class="content-header">
+            </div>
+
+            <section class="content">
+                <div class="container-fluid">
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- End Content Wrapper. Contains page content -->
+
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+
+        <footer class="main-footer">
+
+            <strong>Copyright &copy; 2020 <a href="#">DG infosys ERP Solution</a>.</strong>
+            All rights reserved.
+                <div class="float-right">
+
+                    <b class="text-info">Active Page:</b>
+                    <asp:Label ID="lblCurrentpage" class="text-primary" runat="server"></asp:Label>
+                </div>
+        </footer>
+    </form>
+
+    <!--All Scripts Link-->
+
+    <script src="Content/AdminTemp/plugins/jquery/jquery.min.js"></script>
+    <script src="Content/AdminTemp/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="Content/AdminTemp/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="Content/AdminTemp/dist/js/adminlte.js"></script>
+    <script src="Content/AdminTemp/dist/js/demo.js"></script>
+    <script src="Content/AdminTemp/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="Content/AdminTemp/plugins/raphael/raphael.min.js"></script>
+    <script src="Content/AdminTemp/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+    <script src="Content/AdminTemp/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+    <script src="Content/AdminTemp/plugins/chart/Chart.min.js"></script>
+    <script src="Content/Jquery/jQueryv1.8.3.js"></script>
+
+    <script src="Content/sweetalert/sweetalert.min.js"></script>
+    <script src="Content/AdminTemp/plugins/sweetalert2/toastr.min.js"></script>
+    <script src="Content/AdminTemp/dist/js/demo.js"></script>
+
+    <script src="Content/AdminTemp/DataTables/js/jquery.dataTables.min.js"></script>
+
+
+    <!--All Scripts Link-->
+    <script type="text/javascript">
+        window.setTimeout(function () {
+            $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                $(this).remove();
+            });
+        }, 1500);
+
+        //For PageLoad
+        $(function () {
+            $(".preload").fadeOut(1500, function () {
+                $(".content").fadeIn(500);
+            });
+        });
+
+        function DisableBack() {
+            window.history.forward();
+        }
+        DisableBack();
+        window.onload = DisableBack;
+        window.onpageshow = function (evt) {
+            if (evt.persisted) DisableBack();
+        }
+        window.onunload = function () { void (0); }
+
+        //var iconsArray = ['fa-angle-left','','','','fa-angle-left'];
+        //$('#nav li a').each(function(i) {
+        //    $(this).append ('<p><i class="nav-icon right fas' + ' ' + iconsArray[i] + '"></i></p>');
+        //});
+
+
+        //For Menu Item
+        $("#APOS0").html('<i class="nav-icon fas fa-cut" style="color:#FF5733"></i><p>Cutting<i class="nav-icon right fas fa-angle-left text-info"></i></p>');
+        $("#APOS1").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Cut Master</p>');
+        $("#APOS2").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Cutting-Lay-Ratio</p>');
+        $("#APOS3").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Cutting Approval</p>');
+        $("#APOS4").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Print/Embroidery</p>');
+        $("#APOS5").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Template</p>');
+        $("#APOS6").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Input Cut Panel</p>');
+        $("#ASCAN4").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Barcode Approval</p>');
+        $("#ASCAN1").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Generate Barcode</p>');
+        $("#AINPUT1").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Input Approval</p>');
+        $("#AINPUT2").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Fabric Closing</p>');
+
+        $("#APOS7").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Cutting Report</p>');
+        $("#APOS8").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Input Report</p>');
+
+        $("#APOS9").html('<i class="nav-icon fas fa-tshirt" style="color:#F1C40F"></i><p>Sewing<i class="nav-icon right fas fa-angle-left text-info"></i></p>');
+        $("#APOS10").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Sewing Production</p>');
+        $("#ASCAN2").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Scan QC Sewing Pass Barcode</p>');
+        $("#APOS11").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Wash</p>');
+        $("#APOS15").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Line Details</p>');
+        $("#ASMV").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>SMV</p>');
+        $("#APB").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Print No Scan Barcode</p>');
+        
+        $("#APOS16").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Convert Hourly Production</p>');
+        $("#APOS17").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Hourly Production</p>');
+        $("#APOS18").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Sewing Report</p>');
+
+        $("#AFIN1").html('<i class="nav-icon fas fa-tags" style="color:#FC0172 "></i><p>Finishing<i class="nav-icon right fas fa-angle-left text-info"></i></p>');
+        $("#ASCAN3").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Scan Needle Pass-Barcode</p>');
+        $("#AFIN2").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Finishing</p>');
+        $("#AFIN3").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Packing</p>');
+        $("#AFIN4").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Finishing Report</p>');
+        $("#AFIN5").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Packing Report</p>');
+
+        $("#APOS19").html('<i class="nav-icon fas fa-shipping-fast" style="color:#2ECC71"></i><p>Export<i class="nav-icon right fas fa-angle-left text-info"></i></p>');
+        $("#APOS20").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Packing List</p>');
+        $("#AEXCH1").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Export Challan/Gate Pass</p>');
+        $("#AEXCH2").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>For Approval</p>');
+        $("#AEXCH3").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Export Report</p>');
+
+        $("#AMRPT1").html('<i class="nav-icon fas fa-folder-open" style="color:#CCCCFF"></i><p>Production Report<i class="nav-icon right fas fa-angle-left text-info"></i></p>');
+        $("#AMRPT2").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Cutting_Report</p>');
+        $("#AMRPT3").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Input_Report</p>');
+        $("#AMRPT4").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Sewing_Report</p>');
+        $("#AMRPT5").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Finishing_Report</p>');
+        $("#AMRPT6").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Packing_Report</p>');
+
+        $("#APOS21").html('<i class="nav-icon fas fa-diagnoses" style="color:#F50B52 "></i><p>Quality<i class="nav-icon right fas fa-angle-left text-info"></i></p>');
+        $("#APOS22").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Create Defect</p>');
+        $("#APOS23").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Daily DHU Entry</p>');
+
+        $("#APOS31").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Create Reject</p>');
+        $("#APOS32").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Daily Rejection Entry</p>');
+
+
+        $("#APOS24").html('<i class="nav-icon fab fa-buy-n-large" style="color:#0BECF5 "></i><p>Order In-Hand<i class="nav-icon right fas fa-angle-left text-info"></i></p>');
+        $("#APOS25").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Order Booking</p>');
+        $("#APOS26").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Report</p>');
+
+        $("#APOS27").html('<i class="nav-icon fas fa-funnel-dollar" style="color:#58F911"></i><p>Expences-CM<i class="nav-icon right fas fa-angle-left text-info"></i></p>');
+        $("#APOS28").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Line Wise Expences</p>');
+        $("#APOS29").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Style Wise CM</p>');
+        $("#APOS30").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>CM Earning Report</p>');
+
+        $("#ASCM1").html('<i class="nav-icon fas fa-swatchbook" style="color:#FF5733"></i><p>SCM<i class="nav-icon right fas fa-angle-left text-info"></i></p>');
+        $("#ASCM2").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Supplier Info</p>');
+        $("#ASCM3").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Supplier For Approval</p>');
+        $("#ASCM4").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Master Setting</p>');
+        $("#ASCM5").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Price Comparison</p>');
+        $("#ASCM6").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>CS-For-Approval</p>');
+
+        $("#AAST1").html('<i class="nav-icon fas fa-building" style="color:#F7DC6F"></i><p>Assets<i class="nav-icon right fas fa-angle-left text-info"></i></p>');
+        $("#AAST2").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Add New Asset</p>');
+        $("#AAST3").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Add Rented Asset</p>');
+        $("#AAST4").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Rented Asset Return</p>');
+        $("#AAST5").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Rented Asset Approval</p>');
+        $("#AAST6").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Fixed Asset Transfer</p>');
+        $("#AAST7").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Fixed Asset Approval</p>');
+        $("#AAST8").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Running Repair</p>');
+        $("#AAST9").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Schedule Maintenance</p>');
+        $("#AAST10").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Report</p>');
+        $("#AAST11").html('<i class="nav-icon far fa-hand-point-right text-info"></i><p>Generate QR Code</p>');
+
+
+        // Menu End
+        //For Message SweetAlert
+        function alertmessage(msg) {
+            swal({
+                title: 'Congratulations!',
+                text: msg,
+                type: 'success'
+            });
+        }
+        function alertmessageDel(msg) {
+            swal({
+                title: 'Sad Informations!',
+                text: msg,
+                type: 'error'
+            });
+        }
+        $("input[data-bootstrap-switch]").each(function () {
+            $(this).bootstrapSwitch('state', $(this).prop('checked'));
+        });
+    </script>
+</body>
+</html>

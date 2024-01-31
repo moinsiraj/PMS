@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Mr_Oder_In_Hand_Merchant_Rpt" targetNamespace="http://tempuri.org/Mr_Oder_In_Hand_Merchant_Rpt.xsd" xmlns:mstns="http://tempuri.org/Mr_Oder_In_Hand_Merchant_Rpt.xsd" xmlns="http://tempuri.org/Mr_Oder_In_Hand_Merchant_Rpt.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Mr_Order_In_HandConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Mr_Order_In_HandConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Mr_Order_In_HandConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Mr_Oder_In_Hand_Merchant_Rpt" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="Mr_Oder_In_Hand_Merchant_Rpt" msprop:Generator_DataSetName="Mr_Oder_In_Hand_Merchant_Rpt">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Mr_Order_Inhand_Merchant_Rpt" msprop:Generator_TableClassName="Mr_Order_Inhand_Merchant_RptDataTable" msprop:Generator_TableVarName="tableMr_Order_Inhand_Merchant_Rpt" msprop:Generator_TablePropName="Mr_Order_Inhand_Merchant_Rpt" msprop:Generator_RowDeletingName="Mr_Order_Inhand_Merchant_RptRowDeleting" msprop:Generator_RowChangingName="Mr_Order_Inhand_Merchant_RptRowChanging" msprop:Generator_RowEvHandlerName="Mr_Order_Inhand_Merchant_RptRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Order_Inhand_Merchant_RptRowDeleted" msprop:Generator_UserTableName="Mr_Order_Inhand_Merchant_Rpt" msprop:Generator_RowChangedName="Mr_Order_Inhand_Merchant_RptRowChanged" msprop:Generator_RowEvArgName="Mr_Order_Inhand_Merchant_RptRowChangeEvent" msprop:Generator_RowClassName="Mr_Order_Inhand_Merchant_RptRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="pl_ord_id" msprop:Generator_ColumnVarNameInTable="columnpl_ord_id" msprop:Generator_ColumnPropNameInRow="pl_ord_id" msprop:Generator_ColumnPropNameInTable="pl_ord_idColumn" msprop:Generator_UserColumnName="pl_ord_id" type="xs:int" minOccurs="0" />
+              <xs:element name="pl_gmt_type" msprop:Generator_ColumnVarNameInTable="columnpl_gmt_type" msprop:Generator_ColumnPropNameInRow="pl_gmt_type" msprop:Generator_ColumnPropNameInTable="pl_gmt_typeColumn" msprop:Generator_UserColumnName="pl_gmt_type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pl_year" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpl_year" msprop:Generator_ColumnPropNameInRow="pl_year" msprop:Generator_ColumnPropNameInTable="pl_yearColumn" msprop:Generator_UserColumnName="pl_year" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pl_ship_month" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpl_ship_month" msprop:Generator_ColumnPropNameInRow="pl_ship_month" msprop:Generator_ColumnPropNameInTable="pl_ship_monthColumn" msprop:Generator_UserColumnName="pl_ship_month" type="xs:int" minOccurs="0" />
+              <xs:element name="OMONTH" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOMONTH" msprop:Generator_ColumnPropNameInRow="OMONTH" msprop:Generator_ColumnPropNameInTable="OMONTHColumn" msprop:Generator_UserColumnName="OMONTH" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pl_ship_date" msprop:Generator_ColumnVarNameInTable="columnpl_ship_date" msprop:Generator_ColumnPropNameInRow="pl_ship_date" msprop:Generator_ColumnPropNameInTable="pl_ship_dateColumn" msprop:Generator_UserColumnName="pl_ship_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Topqty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTopqty" msprop:Generator_ColumnPropNameInRow="Topqty" msprop:Generator_ColumnPropNameInTable="TopqtyColumn" msprop:Generator_UserColumnName="Topqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BtmQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBtmQty" msprop:Generator_ColumnPropNameInRow="BtmQty" msprop:Generator_ColumnPropNameInTable="BtmQtyColumn" msprop:Generator_UserColumnName="BtmQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ord_style_no" msprop:Generator_ColumnVarNameInTable="columnord_style_no" msprop:Generator_ColumnPropNameInRow="ord_style_no" msprop:Generator_ColumnPropNameInTable="ord_style_noColumn" msprop:Generator_UserColumnName="ord_style_no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ord_total_qty" msprop:Generator_ColumnVarNameInTable="columnord_total_qty" msprop:Generator_ColumnPropNameInRow="ord_total_qty" msprop:Generator_ColumnPropNameInTable="ord_total_qtyColumn" msprop:Generator_UserColumnName="ord_total_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ord_avg_target_qty" msprop:Generator_ColumnVarNameInTable="columnord_avg_target_qty" msprop:Generator_ColumnPropNameInRow="ord_avg_target_qty" msprop:Generator_ColumnPropNameInTable="ord_avg_target_qtyColumn" msprop:Generator_UserColumnName="ord_avg_target_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ord_price_type" msprop:Generator_ColumnVarNameInTable="columnord_price_type" msprop:Generator_ColumnPropNameInRow="ord_price_type" msprop:Generator_ColumnPropNameInTable="ord_price_typeColumn" msprop:Generator_UserColumnName="ord_price_type" type="xs:int" minOccurs="0" />
+              <xs:element name="ord_uprice" msprop:Generator_ColumnVarNameInTable="columnord_uprice" msprop:Generator_ColumnPropNameInRow="ord_uprice" msprop:Generator_ColumnPropNameInTable="ord_upriceColumn" msprop:Generator_UserColumnName="ord_uprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cCmpName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncCmpName" msprop:Generator_ColumnPropNameInRow="cCmpName" msprop:Generator_ColumnPropNameInTable="cCmpNameColumn" msprop:Generator_UserColumnName="cCmpName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ord_confirm_date" msprop:Generator_ColumnVarNameInTable="columnord_confirm_date" msprop:Generator_ColumnPropNameInRow="ord_confirm_date" msprop:Generator_ColumnPropNameInTable="ord_confirm_dateColumn" msprop:Generator_UserColumnName="ord_confirm_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ord_fabric_rcvd_dt" msprop:Generator_ColumnVarNameInTable="columnord_fabric_rcvd_dt" msprop:Generator_ColumnPropNameInRow="ord_fabric_rcvd_dt" msprop:Generator_ColumnPropNameInTable="ord_fabric_rcvd_dtColumn" msprop:Generator_UserColumnName="ord_fabric_rcvd_dt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="pl_cm" msprop:Generator_ColumnVarNameInTable="columnpl_cm" msprop:Generator_ColumnPropNameInRow="pl_cm" msprop:Generator_ColumnPropNameInTable="pl_cmColumn" msprop:Generator_UserColumnName="pl_cm" type="xs:decimal" minOccurs="0" />
+              <xs:element name="pl_uprice" msprop:Generator_ColumnVarNameInTable="columnpl_uprice" msprop:Generator_ColumnPropNameInRow="pl_uprice" msprop:Generator_ColumnPropNameInTable="pl_upriceColumn" msprop:Generator_UserColumnName="pl_uprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="pl_sew_factory" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpl_sew_factory" msprop:Generator_ColumnPropNameInRow="pl_sew_factory" msprop:Generator_ColumnPropNameInTable="pl_sew_factoryColumn" msprop:Generator_UserColumnName="pl_sew_factory" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pl_input_user" msprop:Generator_ColumnVarNameInTable="columnpl_input_user" msprop:Generator_ColumnPropNameInRow="pl_input_user" msprop:Generator_ColumnPropNameInTable="pl_input_userColumn" msprop:Generator_UserColumnName="pl_input_user" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pl_input_date" msprop:Generator_ColumnVarNameInTable="columnpl_input_date" msprop:Generator_ColumnPropNameInRow="pl_input_date" msprop:Generator_ColumnPropNameInTable="pl_input_dateColumn" msprop:Generator_UserColumnName="pl_input_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="pl_po_no" msprop:Generator_ColumnVarNameInTable="columnpl_po_no" msprop:Generator_ColumnPropNameInRow="pl_po_no" msprop:Generator_ColumnPropNameInTable="pl_po_noColumn" msprop:Generator_UserColumnName="pl_po_no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cBuyer_Name" msprop:Generator_ColumnVarNameInTable="columncBuyer_Name" msprop:Generator_ColumnPropNameInRow="cBuyer_Name" msprop:Generator_ColumnPropNameInTable="cBuyer_NameColumn" msprop:Generator_UserColumnName="cBuyer_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cGmetDis" msprop:Generator_ColumnVarNameInTable="columncGmetDis" msprop:Generator_ColumnPropNameInRow="cGmetDis" msprop:Generator_ColumnPropNameInTable="cGmetDisColumn" msprop:Generator_UserColumnName="cGmetDis" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mer_name" msprop:Generator_ColumnVarNameInTable="columnmer_name" msprop:Generator_ColumnPropNameInRow="mer_name" msprop:Generator_ColumnPropNameInTable="mer_nameColumn" msprop:Generator_UserColumnName="mer_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dt_sname" msprop:Generator_ColumnVarNameInTable="columndt_sname" msprop:Generator_ColumnPropNameInRow="dt_sname" msprop:Generator_ColumnPropNameInTable="dt_snameColumn" msprop:Generator_UserColumnName="dt_sname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dt_description" msprop:Generator_ColumnVarNameInTable="columndt_description" msprop:Generator_ColumnPropNameInRow="dt_description" msprop:Generator_ColumnPropNameInTable="dt_descriptionColumn" msprop:Generator_UserColumnName="dt_description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sewbal" msprop:Generator_ColumnVarNameInTable="columnsewbal" msprop:Generator_ColumnPropNameInRow="sewbal" msprop:Generator_ColumnPropNameInTable="sewbalColumn" msprop:Generator_UserColumnName="sewbal" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

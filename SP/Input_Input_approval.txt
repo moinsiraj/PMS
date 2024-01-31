@@ -1,0 +1,22 @@
+select sum(BTQty) as inputqty from BundleTicket where BTScanDate='2022-02-12' and BTDescription= 'INPUT'
+
+select sum(BTQty) as inputqty  from BundleTicket_Input where BTScanDate='2022-02-12' 
+
+--update BundleTicket_Input set approve=0 where BTScanDate='2022-02-09' 
+
+--delete BundleTicket from BundleTicket where BTScanDate='2022-02-09' and BTDescription= 'INPUT'
+
+--and approve=1
+
+
+SELECT SmartCode.dbo.BundleTicket.BTStyle, SmartCode.dbo.BundleTicket.BTBarCode, SpecFo.dbo.Smt_Line.Line_No, SUM(SmartCode.dbo.BundleTicket.BTQty) AS InputQty, SmartCode.dbo.BundleTicket.BTDescription, 
+                  SmartCode.dbo.BundleTicket.Color, SmartCode.dbo.BundleTicket.PO_No, SpecFo.dbo.Smt_Company.cCmpName, SpecFo.dbo.Smt_Floor.cFloor_Descriptin, SmartCode.dbo.BundleTicket.BTScanDate, 
+                  SpecFo.dbo.Smt_Company.nCompanyID
+FROM     SmartCode.dbo.BundleTicket INNER JOIN
+                  SpecFo.dbo.Smt_Company ON SmartCode.dbo.BundleTicket.CompanyID = SpecFo.dbo.Smt_Company.nCompanyID INNER JOIN
+                  SpecFo.dbo.Smt_Line ON SmartCode.dbo.BundleTicket.BTLine = SpecFo.dbo.Smt_Line.Line_Code INNER JOIN
+                  SpecFo.dbo.Smt_Floor ON SpecFo.dbo.Smt_Line.FloorID = SpecFo.dbo.Smt_Floor.nFloor
+WHERE  (SpecFo.dbo.Smt_Company.nCompanyID = 49) AND (SmartCode.dbo.BundleTicket.BTScanDate = '02/10/2022') AND (SmartCode.dbo.BundleTicket.BTOperationNo = 4)
+GROUP BY SmartCode.dbo.BundleTicket.BTDescription, SmartCode.dbo.BundleTicket.BTStyle, SmartCode.dbo.BundleTicket.Color, SmartCode.dbo.BundleTicket.PO_No, SpecFo.dbo.Smt_Company.cCmpName, SpecFo.dbo.Smt_Line.Line_No, 
+                  SpecFo.dbo.Smt_Floor.cFloor_Descriptin, SmartCode.dbo.BundleTicket.BTScanDate, SpecFo.dbo.Smt_Company.nCompanyID, SmartCode.dbo.BundleTicket.BTBarCode
+ORDER BY SpecFo.dbo.Smt_Floor.cFloor_Descriptin, SpecFo.dbo.Smt_Line.Line_No, SmartCode.dbo.BundleTicket.BTBarCode

@@ -1,0 +1,26 @@
+SELECT LFloor, a.LDate, LLineID, LMo, LHlp, AVG(LDayTgt) AS LDayTgt, AVG(isnull(LDayTgt,0)) / (AVG(isnull(LWrkMint,0)) / 60) AS htrgt, AVG(LWrkMint / 60) AS thour,PDhour, MAX(LLineRem) AS LLineRem
+,(isnull(aHr1,0)) AS aHr1,(isnull(aHr2,0)) AS aHr2,(isnull(aHr3,0)) AS aHr3,(isnull(aHr4,0)) AS aHr4,(isnull(aHr5,0)) AS aHr5,(isnull(aHr6,0)) AS aHr6,(isnull(aHr7,0)) AS aHr7,(isnull(aHr8,0)) AS aHr8,(isnull(aHr9,0)) AS aHr9,(isnull(aHr10,0)) AS aHr10,(isnull(aHr11,0)) AS aHr11,(isnull(aHr12,0)) AS aHr12 
+,(SUM(isnull(b.aHrTotal,0))*100)/ (((AVG(isnull(LDayTgt,0)) / (AVG(isnull(LWrkMint,0))  / 60)))*(c.PDhour)) as ACH,((SUM(isnull(b.aHrTotal,0))*100)/ (((AVG(LDayTgt) / (AVG(isnull(LWrkMint,0)) / 60)))*c.PDhour))-100 as GAP,FlorT,SUM(isnull(b.aHrTotal,0)) - AVG(ISNULL(a.LDayTgt,0)) AS shortqty FROM     Smt_LineDetail as a left outer join
+
+(SELECT aLineID, aLine,  aDate, aPO as cStyleNo,isnull(aHrTotal,0) as aHrTotal,SUM(aHr1) AS aHr1, SUM(aHr2) AS aHr2, SUM(aHr3) AS aHr3, SUM(aHr4) AS aHr4, SUM(aHr5) AS aHr5, SUM(aHr6) AS aHr6, SUM(aHr7) AS aHr7, SUM(aHr8) 
+                  AS aHr8, SUM(aHr9) AS aHr9, SUM(aHr10) AS aHr10, SUM(aHr11) AS aHr11, SUM(aHr12) AS aHr12 FROM  dbo.Hrs_ProductionByLine WHERE  (aDate = '2/07/2022') AND (aStage = 'SEWING QC OUT') AND (aCompanyID = 49)
+
+group by aLineID, aLine, aDate,aHrTotal, aPO) as b ON a.LLineID=b.aLineID and a.LDate=b.aDate 
+
+left outer join 
+(SELECT BTScanDate, MAX(isnull(BTHour,0)) AS PDhour
+                       FROM      dbo.BundleTicket
+                       GROUP BY BTScanDate) c ON a.LDate = c.BTScanDate left outer join
+
+					      (SELECT LDate, sum(isnull(LDayTgt,0)) AS FlorT
+                       FROM      dbo.Smt_LineDetail
+                       GROUP BY LDate) AS d ON a.LDate = d.LDate 
+
+
+WHERE  (a.LDate = '2/07/2022') 
+
+
+
+GROUP BY LFloor, a.LDate, LLineID, LMo, LHlp,PDhour,FlorT,b.aHr1,b.aHr2,b.aHr3,b.aHr4,b.aHr5,b.aHr6,b.aHr7,b.aHr8,b.aHr9,b.aHr10,b.aHr11,b.aHr12
+
+order by LLineID

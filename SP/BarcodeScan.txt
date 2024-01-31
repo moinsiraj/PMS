@@ -1,0 +1,83 @@
+USE [Mr_PMS]
+GO
+/****** Object:  StoredProcedure [dbo].[Mr_ScanBarcode]    Script Date: 11/5/2022 2:40:40 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER Procedure [dbo].[Mr_ScanBarcode]
+
+(
+@Barcode int,
+@ScanUser varchar(30)
+
+)
+
+as 
+
+Update SmartCode.dbo.BundleTicket set SewScan=1, BTScanDate=getdate(), BTScanBy=@ScanUser where BTBundleNo=@Barcode
+
+	DECLARE  @Date as  date
+	DECLARE @lineDes as varchar (30)
+	DECLARE @Stage as char(30)
+	DECLARE @Qty as	int 
+	DECLARE @Hour as int
+	DECLARE @StageID as int
+	DECLARE @StyleNo as	varchar(50)
+	DECLARE @Color as	varchar(50)
+	DECLARE @StyleID as	int
+	DECLARE @lineID	as int
+	DECLARE @COM as int
+	DECLARE @PoLot as varchar(3)
+	DECLARE @ColorID as int
+
+SELECT @Date=MAX(BTScanDate), @lineDes=max(BTLineDes),@Stage='SEWING QC OUT', @Qty=max(BTQty), @Hour=max(DATEPART(hour,BTPrintDate)),@StageID=5,
+@StyleNo=max(BTStyle),@Color=max(Color), @StyleID=max(BTStyleCode),@lineID=max(BTLine),@COM=max(CompanyID), @PoLot=max(PoLot),@ColorID=max(ColorID)
+   FROM SmartCode.dbo.BundleTicket where BTBundleNo=@Barcode 
+
+
+   exec update_Hrs_ProductionByLine_New @Date,@lineDes,@Stage,@Qty,@Hour,@StageID,@StyleNo,@Color,@StyleID,@lineID,@COM,@PoLot,@ColorID
+--SELECT distinct PO_No,  DATEPART(hour,BTPrintDate) 'Hour Part' from BundleTicket where BTScanDate='2022-11-03' and BTOperationNo=5
+
+-----------------------------------Version-02-----------------------------
+
+USE [Mr_PMS]
+GO
+/****** Object:  StoredProcedure [dbo].[Mr_ScanBarcode]    Script Date: 11/5/2022 2:40:40 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER Procedure [dbo].[Mr_ScanBarcode]
+
+(
+@Barcode int,
+@ScanUser varchar(30)
+
+)
+
+as 
+
+Update SmartCode.dbo.BundleTicket set SewScan=1,  BTScanDate=getdate(), BTScanBy=@ScanUser where BTBundleNo=@Barcode
+
+	DECLARE  @Date as  date
+	DECLARE @lineDes as varchar (30)
+	DECLARE @Stage as char(30)
+	DECLARE @Qty as	int 
+	DECLARE @Hour as int
+	DECLARE @StageID as int
+	DECLARE @StyleNo as	varchar(50)
+	DECLARE @Color as	varchar(50)
+	DECLARE @StyleID as	int
+	DECLARE @lineID	as int
+	DECLARE @COM as int
+	DECLARE @PoLot as varchar(3)
+	DECLARE @ColorID as int
+
+SELECT distinct   @Hour=12  from SmartCode.dbo.BundleTicket
+SELECT @Date=MAX(BTScanDate), @lineDes=max(BTLineDes),@Stage='SEWING QC OUT', @Qty=max(BTQty), @StageID=5,
+@StyleNo=max(BTStyle),@Color=max(Color), @StyleID=max(BTStyleCode),@lineID=max(BTLine),@COM=max(CompanyID), @PoLot=max(PoLot),@ColorID=max(ColorID)
+   FROM SmartCode.dbo.BundleTicket where BTBundleNo=@Barcode 
+
+
+   exec update_Hrs_ProductionByLine_New @Date,@lineDes,@Stage,@Qty,@Hour,@StageID,@StyleNo,@Color,@StyleID,@lineID,@COM,@PoLot,@ColorID 

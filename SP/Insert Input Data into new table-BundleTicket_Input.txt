@@ -1,0 +1,21 @@
+insert into SmartCode.dbo.BundleTicket_Input ([BTBundleNo],[BTinput_ref],[BTStyleCode],[BTWorkLocation],[BTOperationNo]
+      ,[BTDescription],[BTQty],[BTSMV],[BTTgt],[BTPrintDate],[BTPrintBy],[BTDataHead]
+      ,[BTScanDate],[BTScanStatus],[BTScanBy],[BTEPF],[BTLine],[BTLineDes],[BTHour],[BTScanPeriod],[BTMinuteVal]
+      ,[BTStyle],[BTProcessCmp],[BTLocation],[BTWorkStation],[PO_No],[PoLot],[CountryID],[Country]
+      ,[ColorID],[Color],[Size_Id],[Size],[CompanyID],[sent_rcvd_status])
+
+	  --select BTBundleNo,BTinput_ref,BTStyleCode,BTWorkLocation,BTOperationNo
+   --   ,BTDescription,BTQty,BTSMV,BTTgt,BTPrintDate,BTPrintBy,BTDataHead
+   --   ,BTScanDate,BTScanStatus,BTScanBy,BTEPF,BTLine,BTLineDes,BTHour,BTScanPeriod,BTMinuteVal
+   --   ,BTStyle,BTProcessCmp,BTLocation,BTWorkStation,PO_No,PoLot,CountryID,Country
+   --   ,ColorID,Color,Size_Id,Size,CompanyID,sent_rcvd_status
+
+	 select [BTBundleNo],[BTBundleNo],[BTStyleCode],[BTWorkLocation],[BTOperationNo]
+      ,[BTDescription],[BTQty],[BTSMV],[BTTgt],[BTPrintDate],[BTPrintBy],[BTDataHead]
+      ,[BTScanDate],[BTScanStatus],[BTScanBy],[BTEPF],[BTLine],[BTLineDes],[BTHour],[BTScanPeriod],[BTMinuteVal]
+      ,[BTStyle],[BTProcessCmp],[BTLocation],[BTWorkStation],[PO_No],[PoLot],[CountryID],[Country]
+      ,[ColorID],[Color],[Size_Id],[Size],[CompanyID],[sent_rcvd_status]
+
+	  from SmartCode.dbo.BundleTicket where BTDescription='INPUT'
+////
+update BundleTicket_Input set approve=1

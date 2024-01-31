@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="Input_Rpt">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>4185a1b2-2ea2-4a22-aaf1-06dec7a9ccc8</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>Input_Rpt</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="BTinput_ref">
+          <DataField>BTinput_ref</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="cBuyer_Name">
+          <DataField>cBuyer_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BTQty">
+          <DataField>BTQty</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="BTScanDate">
+          <DataField>BTScanDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="BTLineDes">
+          <DataField>BTLineDes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BTStyle">
+          <DataField>BTStyle</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PO_No">
+          <DataField>PO_No</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Country">
+          <DataField>Country</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Color">
+          <DataField>Color</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Size">
+          <DataField>Size</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Cut_No">
+          <DataField>Cut_No</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Puttern_No">
+          <DataField>Puttern_No</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Remarks">
+          <DataField>Remarks</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="approved_dt">
+          <DataField>approved_dt</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="approval_nm">
+          <DataField>approval_nm</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cCmpName">
+          <DataField>cCmpName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cAdd1">
+          <DataField>cAdd1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cAdd2">
+          <DataField>cAdd2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="lgo">
+          <DataField>lgo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BTScanBy">
+          <DataField>BTScanBy</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BTBundleNo">
+          <DataField>BTBundleNo</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Input_Rpt</rd:DataSetName>
+        <rd:SchemaPath>D:\Cutting\App_Code\Input_Rpt.xsd</rd:SchemaPath>
+        <rd:TableName>Mr_Input_BarCodePrint</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Tablix8">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>0.9625in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.125in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.57911in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Rectangle Name="Rectangle3">
+                          <ReportItems>
+                            <Image Name="Image1">
+                              <Source>Database</Source>
+                              <Value>=Code.Code128B(Fields!BTBundleNo.Value,1,True)</Value>
+                              <MIMEType>image/jpeg</MIMEType>
+                              <Sizing>FitProportional</Sizing>
+                              <Top>0.14583in</Top>
+                              <Left>0.00833in</Left>
+                              <Height>0.30828in</Height>
+                              <Width>0.95417in</Width>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingBottom>1pt</PaddingBottom>
+                              </Style>
+                            </Image>
+                            <Textbox Name="Textbox18">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>QC-PASS</Value>
+                                      <Style>
+                                        <FontFamily>times New Roman</FontFamily>
+                                        <FontSize>6pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox18</rd:DefaultName>
+                              <Top>0.37911in</Top>
+                              <Left>0.00833in</Left>
+                              <Height>0.2in</Height>
+                              <Width>0.95417in</Width>
+                              <ZIndex>1</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox19">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>#</Value>
+                                      <Style>
+                                        <FontFamily>times New Roman</FontFamily>
+                                        <FontSize>6pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                    <TextRun>
+                                      <Value>=Fields!PO_No.Value</Value>
+                                      <Style>
+                                        <FontFamily>times New Roman</FontFamily>
+                                        <FontSize>6pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                    <TextRun>
+                                      <Value>-</Value>
+                                      <Style>
+                                        <FontFamily>times New Roman</FontFamily>
+                                        <FontSize>6pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                    <TextRun>
+                                      <Value>=Fields!Color.Value</Value>
+                                      <Style>
+                                        <FontFamily>times New Roman</FontFamily>
+                                        <FontSize>6pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                    <TextRun>
+                                      <Value>-</Value>
+                                      <Style>
+                                        <FontFamily>times New Roman</FontFamily>
+                                        <FontSize>6pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                    <TextRun>
+                                      <Value>=Fields!Size.Value</Value>
+                                      <Style>
+                                        <FontFamily>times New Roman</FontFamily>
+                                        <FontSize>6pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox18</rd:DefaultName>
+                              <Left>0.00833in</Left>
+                              <Height>0.18333in</Height>
+                              <Width>0.95417in</Width>
+                              <ZIndex>2</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </ReportItems>
+                          <KeepTogether>true</KeepTogether>
+                          <ZIndex>1</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Rectangle>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox32">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox32</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="emp_no">
+                    <GroupExpressions>
+                      <GroupExpression>=(RowNumber(Nothing)) Mod 7</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!BTBundleNo.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixMembers>
+                    <TablixMember />
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="Details">
+                    <GroupExpressions>
+                      <GroupExpression>=Ceiling(RowNumber(Nothing)/ 7)</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <Top>0.05in</Top>
+            <Left>0.1375in</Left>
+            <Height>0.57911in</Height>
+            <Width>1.0875in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+                <Width>0.25pt</Width>
+              </Border>
+              <FontFamily>Verdana</FontFamily>
+              <FontSize>8pt</FontSize>
+            </Style>
+          </Tablix>
+        </ReportItems>
+        <Height>0.62911in</Height>
+        <Style />
+      </Body>
+      <Width>1.38334in</Width>
+      <Page>
+        <PageHeader>
+          <Height>1.03332in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="BTinput_ref">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Challan No:</Value>
+                      <Style>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Fields!BTinput_ref.Value</Value>
+                      <Style>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Style:</Value>
+                      <Style>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Fields!BTStyle.Value</Value>
+                      <Style>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>PO: </Value>
+                      <Style>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Fields!PO_No.Value</Value>
+                      <Style>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Country:</Value>
+                      <Style>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Fields!Country.Value</Value>
+                      <Style>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Color:</Value>
+                      <Style>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Fields!Color.Value</Value>
+                      <Style>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Line:</Value>
+                      <Style>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Fields!BTLineDes.Value</Value>
+                      <Style>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Normal</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>BTinput_ref</rd:DefaultName>
+              <Top>0.025in</Top>
+              <Height>0.96944in</Height>
+              <Width>1.35834in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Top</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageHeight>11.69in</PageHeight>
+        <PageWidth>8.27in</PageWidth>
+        <LeftMargin>0.25in</LeftMargin>
+        <RightMargin>0.1in</RightMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Shared Function Code128A(ByVal stringText as String, ByVal fontVer as Integer, Optional isHumanReadable As Boolean = True) As Byte()
+	If isHumanReadable Then
+		Return GenerateImage("BCW_Code128A_" &amp; fontVer, BCW_Code128A(stringText))
+	Else
+		Return GenerateImage("BCW_Code128_" &amp; fontVer, BCW_Code128A(stringText))
+	End If
+End Function
+
+Public Shared Function Code128B(ByVal stringText as String, ByVal fontVer as Integer, Optional isHumanReadable As Boolean = True) As Byte()
+	If isHumanReadable Then
+		Return GenerateImage("BCW_Code128B_" &amp; fontVer, BCW_Code128B(stringText))
+	Else
+		Return GenerateImage("BCW_Code128_" &amp; fontVer, BCW_Code128B(stringText))
+	End If
+End Function
+
+
+Public Shared Function Code128C(ByVal stringText as String, ByVal fontVer as Integer, Optional isHumanReadable As Boolean = True) As Byte()
+	If isHumanReadable Then
+		Return GenerateImage("BCW_Code128C_" &amp; fontVer, BCW_Code128C(stringText))
+	Else
+		Return GenerateImage("BCW_Code128_" &amp; fontVer, BCW_Code128C(stringText))
+	End If
+End Function
+
+Public Shared Function GenerateImage(ByVal fontName As String,  ByVal stringText As String) As Byte()
+        Dim oGraphics As System.Drawing.Graphics
+        Dim barcodeSize As System.Drawing.SizeF
+        Dim ms As System.IO.MemoryStream
+ 
+        Dim fontSize as Integer = 220
+
+        Using font As New System.Drawing.Font(New System.Drawing.FontFamily(fontName), fontSize)
+            Using tmpBitmap As New System.Drawing.Bitmap(1, 1, System.Drawing.Imaging.PixelFormat.Format32bppArgb)
+                oGraphics = System.Drawing.Graphics.FromImage(tmpBitmap)
+                oGraphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel
+                barcodeSize = oGraphics.MeasureString(stringText, font)
+                oGraphics.Dispose()
+            End Using
+ 
+            Using newBitmap As New System.Drawing.Bitmap(barcodeSize.Width, barcodeSize.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb)
+                oGraphics = System.Drawing.Graphics.FromImage(newBitmap)
+                oGraphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixel
+ 
+                Using oSolidBrushWhite As New System.Drawing.SolidBrush(System.Drawing.Color.White)
+                    Using oSolidBrushBlack As New System.Drawing.SolidBrush(System.Drawing.Color.Black)
+                        oGraphics.FillRectangle(oSolidBrushWhite, New System.Drawing.Rectangle(0, 0, barcodeSize.Width, barcodeSize.Height))
+                        oGraphics.DrawString(stringText, font, oSolidBrushBlack, 0, 0)
+                    End Using
+ 
+                End Using
+ 
+                ms = New System.IO.MemoryStream()
+                newBitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
+            End Using
+        End Using
+ 
+        Return ms.ToArray()
+    End Function
+
+
+    Public Shared Function BCW_Code128A(ByVal input As String) As String
+        Dim chkDigitTotal As Integer = 103
+        Dim inputLength As Integer = input.Length
+
+        If inputLength = 0 Then Return ""
+
+        Dim currentPos As Integer = 1
+
+        While currentPos &lt;= inputLength
+            Dim bcVal As Integer
+
+            Dim asciiVal As Integer = Asc(input(currentPos - 1))
+
+            If asciiVal &gt;= 32 And asciiVal &lt;= 95 Then
+                bcVal = asciiVal - 32
+            ElseIf asciiVal &gt;= 0 And asciiVal &lt;= 31 Then
+                bcVal = asciiVal + 64
+            Else
+                Return ""
+            End If
+
+            chkDigitTotal += bcVal * currentPos
+            currentPos = currentPos + 1
+        End While
+        chkDigitTotal = chkDigitTotal Mod 103
+
+        Dim output As String = ""
+
+        output = output + Chr(203)
+
+        For i As Integer = 0 To inputLength - 1
+
+            If input(i) = Chr(32) Then
+                output += Chr(232)
+            Else
+                output += input(i)
+            End If
+        Next
+
+        output += C128ToBars(chkDigitTotal)
+        output += Chr(206)
+
+        Return output
+    End Function
+    Public Shared Function BCW_Code128B(ByVal input As String) As String
+        Dim chkDigitTotal As Integer = 104
+        Dim inputLength As Integer = input.Length
+
+        If inputLength = 0 Then Return ""
+
+        Dim currentPos As Integer = 1
+
+        While currentPos &lt;= inputLength
+            Dim bcVal As Integer
+
+            Dim asciiVal As Integer = Asc(input(currentPos - 1))
+
+            If asciiVal &gt;= 32 And asciiVal &lt;= 126 Then
+                bcVal = asciiVal - 32
+            Else
+                Return ""
+            End If
+
+            chkDigitTotal += bcVal * currentPos
+            currentPos = currentPos + 1
+        End While
+
+        chkDigitTotal = chkDigitTotal Mod 103
+
+        Dim output As String = ""
+
+        output = output + Chr(204)
+
+        For i As Integer = 0 To inputLength - 1
+
+            If input(i) = Chr(32) Then
+                output += Chr(232)
+            Else
+                output += input(i)
+            End If
+        Next
+
+        output += C128ToBars(chkDigitTotal)
+        output += Chr(206)
+
+        Return output
+    End Function
+
+
+    Public Shared Function BCW_Code128C(ByVal input As String, Optional ByVal insertLeadingZero As Boolean = False) As String
+        Dim chkDigitTotal As Integer = 105
+        Dim inputLength As Integer = input.Length
+
+        If inputLength = 0 Then Return ""
+
+        Dim currentPos As Integer = 1
+
+        'Only numbers are valid
+        For l As Integer = 0 To inputLength - 1
+            If input(l) &gt; "9" Or input(l) &lt; "0" Then
+                Return ""
+            End If
+        Next
+
+        If inputLength Mod 2 &lt;&gt; 0 Then
+            If insertLeadingZero Then
+                input = "0" + input
+                inputLength = inputLength + 1
+            Else
+                Return ""
+            End If
+        End If
+
+
+        Dim output As String = ""
+
+        For i As Integer = 0 To inputLength - 1 Step 2
+            Dim bcVal As Integer = Convert.ToInt32(input.Substring(i, 2))
+            chkDigitTotal += currentPos * bcVal
+            currentPos = currentPos + 1
+
+            If bcVal = 0 Then
+                output += Chr(232)
+            ElseIf bcVal &gt;= 1 And bcVal &lt;= 94 Then
+                output += Chr(bcVal + 32)
+            ElseIf bcVal &gt;= 95 And bcVal &lt;= 99 Then
+                output += Chr(bcVal + 132)
+            End If
+        Next
+
+        chkDigitTotal = chkDigitTotal Mod 103
+
+        output = Chr(205) + output
+
+        output += C128ToBars(chkDigitTotal)
+        output += Chr(206)
+
+        Return output
+    End Function
+
+
+
+    Private Shared Function C128ToBars(ByVal chkDigit As Integer) As String
+
+        Dim c As String = "212222222122222221121223121322" _
+                        + "131222122213122312132212221213221312" _
+                        + "231212112232122132122231113222123122" _
+                        + "123221223211221132221231213212223112" _
+                        + "312131311222321122321221312212322112" _
+                        + "322211212123212321232121111323131123" _
+                        + "131321112313132113132311211313231113" _
+                        + "231311112133112331132131113123113321" _
+                        + "133121313121211331231131213113213311" _
+                        + "213131311123311321331121312113312311" _
+                        + "332111314111221411431111111224111422" _
+                        + "121124121421141122141221112214112412" _
+                        + "122114122411142112142211241211221114" _
+                        + "413111241112134111111242121142121241" _
+                        + "114212124112124211411212421112421211" _
+                        + "212141214121412121111143111341131141" _
+                        + "114113114311411113411311113141114131" _
+                        + "3111414111312114122112142112322331112"
+
+        Dim startPos As Integer = chkDigit * 6
+        Dim output As String = ""
+
+        For i As Integer = 0 To 5
+            Dim addPos As Integer = 0
+            If i Mod 2 = 0 Then
+                addPos = 180 + Asc(c.Substring(startPos + i)) - 48 - 1
+            Else
+                addPos = 184 + Asc(c.Substring(startPos + i)) - 48 - 1
+            End If
+            output += Chr(addPos)
+        Next
+
+        Return output
+    End Function
+
+</Code>
+  <CodeModules>
+    <CodeModule>System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</CodeModule>
+  </CodeModules>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>e9d15614-5921-4327-81b0-9c683ed711ee</rd:ReportID>
+</Report>

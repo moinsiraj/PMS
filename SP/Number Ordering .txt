@@ -1,0 +1,1 @@
+SELECT  cLayNo FROM [dbo].[TUP_Bundles] where cLayNo= 1 group by cLayNo order by CAST(cLayNo as int) ASC

@@ -1,0 +1,3 @@
+delete from BundleTicket where BTBarCode= 
+update BundleTicket_Input set approve=0 where BTinput_ref= 
+update BundleTicket set BTLine=, BTLineDes='' where BTBarCode=

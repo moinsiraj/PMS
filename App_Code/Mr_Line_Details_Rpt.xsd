@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Mr_Line_Details" targetNamespace="http://tempuri.org/Mr_Line_Details.xsd" xmlns:mstns="http://tempuri.org/Mr_Line_Details.xsd" xmlns="http://tempuri.org/Mr_Line_Details.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Mr_PMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Mr_PMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Mr_PMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Mr_Line_Details" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="Mr_Line_Details" msprop:Generator_DataSetName="Mr_Line_Details">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Mr_Line_Details_Rpt" msprop:Generator_TableClassName="Mr_Line_Details_RptDataTable" msprop:Generator_TableVarName="tableMr_Line_Details_Rpt" msprop:Generator_TablePropName="Mr_Line_Details_Rpt" msprop:Generator_RowDeletingName="Mr_Line_Details_RptRowDeleting" msprop:Generator_RowChangingName="Mr_Line_Details_RptRowChanging" msprop:Generator_RowEvHandlerName="Mr_Line_Details_RptRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Line_Details_RptRowDeleted" msprop:Generator_UserTableName="Mr_Line_Details_Rpt" msprop:Generator_RowChangedName="Mr_Line_Details_RptRowChanged" msprop:Generator_RowEvArgName="Mr_Line_Details_RptRowChangeEvent" msprop:Generator_RowClassName="Mr_Line_Details_RptRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LDate" msprop:Generator_ColumnVarNameInTable="columnLDate" msprop:Generator_ColumnPropNameInRow="LDate" msprop:Generator_ColumnPropNameInTable="LDateColumn" msprop:Generator_UserColumnName="LDate" type="xs:dateTime" />
+              <xs:element name="Line_No" msprop:Generator_ColumnVarNameInTable="columnLine_No" msprop:Generator_ColumnPropNameInRow="Line_No" msprop:Generator_ColumnPropNameInTable="Line_NoColumn" msprop:Generator_UserColumnName="Line_No" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cFloor_Descriptin" msprop:Generator_ColumnVarNameInTable="columncFloor_Descriptin" msprop:Generator_ColumnPropNameInRow="cFloor_Descriptin" msprop:Generator_ColumnPropNameInTable="cFloor_DescriptinColumn" msprop:Generator_UserColumnName="cFloor_Descriptin" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cCmpName" msprop:Generator_ColumnVarNameInTable="columncCmpName" msprop:Generator_ColumnPropNameInRow="cCmpName" msprop:Generator_ColumnPropNameInTable="cCmpNameColumn" msprop:Generator_UserColumnName="cCmpName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LMo" msprop:Generator_ColumnVarNameInTable="columnLMo" msprop:Generator_ColumnPropNameInRow="LMo" msprop:Generator_ColumnPropNameInTable="LMoColumn" msprop:Generator_UserColumnName="LMo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LTMo" msprop:Generator_ColumnVarNameInTable="columnLTMo" msprop:Generator_ColumnPropNameInRow="LTMo" msprop:Generator_ColumnPropNameInTable="LTMoColumn" msprop:Generator_UserColumnName="LTMo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LHlp" msprop:Generator_ColumnVarNameInTable="columnLHlp" msprop:Generator_ColumnPropNameInRow="LHlp" msprop:Generator_ColumnPropNameInTable="LHlpColumn" msprop:Generator_UserColumnName="LHlp" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LOfftime" msprop:Generator_ColumnVarNameInTable="columnLOfftime" msprop:Generator_ColumnPropNameInRow="LOfftime" msprop:Generator_ColumnPropNameInTable="LOfftimeColumn" msprop:Generator_UserColumnName="LOfftime" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LWrkMint" msprop:Generator_ColumnVarNameInTable="columnLWrkMint" msprop:Generator_ColumnPropNameInRow="LWrkMint" msprop:Generator_ColumnPropNameInTable="LWrkMintColumn" msprop:Generator_UserColumnName="LWrkMint" type="xs:int" minOccurs="0" />
+              <xs:element name="LCM" msprop:Generator_ColumnVarNameInTable="columnLCM" msprop:Generator_ColumnPropNameInRow="LCM" msprop:Generator_ColumnPropNameInTable="LCMColumn" msprop:Generator_UserColumnName="LCM" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LDayTgt" msprop:Generator_ColumnVarNameInTable="columnLDayTgt" msprop:Generator_ColumnPropNameInRow="LDayTgt" msprop:Generator_ColumnPropNameInTable="LDayTgtColumn" msprop:Generator_UserColumnName="LDayTgt" type="xs:int" minOccurs="0" />
+              <xs:element name="LLineRem" msprop:Generator_ColumnVarNameInTable="columnLLineRem" msprop:Generator_ColumnPropNameInRow="LLineRem" msprop:Generator_ColumnPropNameInTable="LLineRemColumn" msprop:Generator_UserColumnName="LLineRem" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Input_user" msprop:Generator_ColumnVarNameInTable="columnInput_user" msprop:Generator_ColumnPropNameInRow="Input_user" msprop:Generator_ColumnPropNameInTable="Input_userColumn" msprop:Generator_UserColumnName="Input_user" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Input_date" msprop:Generator_ColumnVarNameInTable="columnInput_date" msprop:Generator_ColumnPropNameInRow="Input_date" msprop:Generator_ColumnPropNameInTable="Input_dateColumn" msprop:Generator_UserColumnName="Input_date" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

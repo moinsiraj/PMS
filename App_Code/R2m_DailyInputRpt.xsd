@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="R2m_DailyInputRpt" targetNamespace="http://tempuri.org/R2m_DailyInputRpt.xsd" xmlns:mstns="http://tempuri.org/R2m_DailyInputRpt.xsd" xmlns="http://tempuri.org/R2m_DailyInputRpt.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Mr_PMSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Mr_PMSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Mr_PMSConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="R2m_DailyInputRpt" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="R2m_DailyInputRpt" msprop:Generator_UserDSName="R2m_DailyInputRpt">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Mr_Input_Cut_Panel_Ref_Rpt" msprop:Generator_TableClassName="Mr_Input_Cut_Panel_Ref_RptDataTable" msprop:Generator_TableVarName="tableMr_Input_Cut_Panel_Ref_Rpt" msprop:Generator_RowChangedName="Mr_Input_Cut_Panel_Ref_RptRowChanged" msprop:Generator_TablePropName="Mr_Input_Cut_Panel_Ref_Rpt" msprop:Generator_RowDeletingName="Mr_Input_Cut_Panel_Ref_RptRowDeleting" msprop:Generator_RowChangingName="Mr_Input_Cut_Panel_Ref_RptRowChanging" msprop:Generator_RowEvHandlerName="Mr_Input_Cut_Panel_Ref_RptRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Input_Cut_Panel_Ref_RptRowDeleted" msprop:Generator_RowClassName="Mr_Input_Cut_Panel_Ref_RptRow" msprop:Generator_UserTableName="Mr_Input_Cut_Panel_Ref_Rpt" msprop:Generator_RowEvArgName="Mr_Input_Cut_Panel_Ref_RptRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BTinput_ref" msprop:Generator_ColumnVarNameInTable="columnBTinput_ref" msprop:Generator_ColumnPropNameInRow="BTinput_ref" msprop:Generator_ColumnPropNameInTable="BTinput_refColumn" msprop:Generator_UserColumnName="BTinput_ref" type="xs:int" minOccurs="0" />
+              <xs:element name="cBuyer_Name" msprop:Generator_ColumnVarNameInTable="columncBuyer_Name" msprop:Generator_ColumnPropNameInRow="cBuyer_Name" msprop:Generator_ColumnPropNameInTable="cBuyer_NameColumn" msprop:Generator_UserColumnName="cBuyer_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BTQty" msprop:Generator_ColumnVarNameInTable="columnBTQty" msprop:Generator_ColumnPropNameInRow="BTQty" msprop:Generator_ColumnPropNameInTable="BTQtyColumn" msprop:Generator_UserColumnName="BTQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BTScanDate" msprop:Generator_ColumnVarNameInTable="columnBTScanDate" msprop:Generator_ColumnPropNameInRow="BTScanDate" msprop:Generator_ColumnPropNameInTable="BTScanDateColumn" msprop:Generator_UserColumnName="BTScanDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BTScanBy" msprop:Generator_ColumnVarNameInTable="columnBTScanBy" msprop:Generator_ColumnPropNameInRow="BTScanBy" msprop:Generator_ColumnPropNameInTable="BTScanByColumn" msprop:Generator_UserColumnName="BTScanBy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BTLineDes" msprop:Generator_ColumnVarNameInTable="columnBTLineDes" msprop:Generator_ColumnPropNameInRow="BTLineDes" msprop:Generator_ColumnPropNameInTable="BTLineDesColumn" msprop:Generator_UserColumnName="BTLineDes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BTStyle" msprop:Generator_ColumnVarNameInTable="columnBTStyle" msprop:Generator_ColumnPropNameInRow="BTStyle" msprop:Generator_ColumnPropNameInTable="BTStyleColumn" msprop:Generator_UserColumnName="BTStyle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PO_No" msprop:Generator_ColumnVarNameInTable="columnPO_No" msprop:Generator_ColumnPropNameInRow="PO_No" msprop:Generator_ColumnPropNameInTable="PO_NoColumn" msprop:Generator_UserColumnName="PO_No" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Country" msprop:Generator_ColumnVarNameInTable="columnCountry" msprop:Generator_ColumnPropNameInRow="Country" msprop:Generator_ColumnPropNameInTable="CountryColumn" msprop:Generator_UserColumnName="Country" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Size" msprop:Generator_ColumnVarNameInTable="columnSize" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_UserColumnName="Size" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cut_No" msprop:Generator_ColumnVarNameInTable="columnCut_No" msprop:Generator_ColumnPropNameInRow="Cut_No" msprop:Generator_ColumnPropNameInTable="Cut_NoColumn" msprop:Generator_UserColumnName="Cut_No" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Puttern_No" msprop:Generator_ColumnVarNameInTable="columnPuttern_No" msprop:Generator_ColumnPropNameInRow="Puttern_No" msprop:Generator_ColumnPropNameInTable="Puttern_NoColumn" msprop:Generator_UserColumnName="Puttern_No" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn" msprop:Generator_UserColumnName="Remarks" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="approved_dt" msprop:Generator_ColumnVarNameInTable="columnapproved_dt" msprop:Generator_ColumnPropNameInRow="approved_dt" msprop:Generator_ColumnPropNameInTable="approved_dtColumn" msprop:Generator_UserColumnName="approved_dt" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="approval_nm" msprop:Generator_ColumnVarNameInTable="columnapproval_nm" msprop:Generator_ColumnPropNameInRow="approval_nm" msprop:Generator_ColumnPropNameInTable="approval_nmColumn" msprop:Generator_UserColumnName="approval_nm" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cCmpName" msprop:Generator_ColumnVarNameInTable="columncCmpName" msprop:Generator_ColumnPropNameInRow="cCmpName" msprop:Generator_ColumnPropNameInTable="cCmpNameColumn" msprop:Generator_UserColumnName="cCmpName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cAdd1" msprop:Generator_ColumnVarNameInTable="columncAdd1" msprop:Generator_ColumnPropNameInRow="cAdd1" msprop:Generator_ColumnPropNameInTable="cAdd1Column" msprop:Generator_UserColumnName="cAdd1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cAdd2" msprop:Generator_ColumnVarNameInTable="columncAdd2" msprop:Generator_ColumnPropNameInRow="cAdd2" msprop:Generator_ColumnPropNameInTable="cAdd2Column" msprop:Generator_UserColumnName="cAdd2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lgo" msprop:Generator_ColumnVarNameInTable="columnlgo" msprop:Generator_ColumnPropNameInRow="lgo" msprop:Generator_ColumnPropNameInTable="lgoColumn" msprop:Generator_UserColumnName="lgo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mr_Daily_Input_Rpt" msprop:Generator_TableClassName="Mr_Daily_Input_RptDataTable" msprop:Generator_TableVarName="tableMr_Daily_Input_Rpt" msprop:Generator_RowChangedName="Mr_Daily_Input_RptRowChanged" msprop:Generator_TablePropName="Mr_Daily_Input_Rpt" msprop:Generator_RowDeletingName="Mr_Daily_Input_RptRowDeleting" msprop:Generator_RowChangingName="Mr_Daily_Input_RptRowChanging" msprop:Generator_RowEvHandlerName="Mr_Daily_Input_RptRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Daily_Input_RptRowDeleted" msprop:Generator_RowClassName="Mr_Daily_Input_RptRow" msprop:Generator_UserTableName="Mr_Daily_Input_Rpt" msprop:Generator_RowEvArgName="Mr_Daily_Input_RptRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BTDescription" msprop:Generator_ColumnVarNameInTable="columnBTDescription" msprop:Generator_ColumnPropNameInRow="BTDescription" msprop:Generator_ColumnPropNameInTable="BTDescriptionColumn" msprop:Generator_UserColumnName="BTDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InputQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInputQty" msprop:Generator_ColumnPropNameInRow="InputQty" msprop:Generator_ColumnPropNameInTable="InputQtyColumn" msprop:Generator_UserColumnName="InputQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BTStyle" msprop:Generator_ColumnVarNameInTable="columnBTStyle" msprop:Generator_ColumnPropNameInRow="BTStyle" msprop:Generator_ColumnPropNameInTable="BTStyleColumn" msprop:Generator_UserColumnName="BTStyle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PO_No" msprop:Generator_ColumnVarNameInTable="columnPO_No" msprop:Generator_ColumnPropNameInRow="PO_No" msprop:Generator_ColumnPropNameInTable="PO_NoColumn" msprop:Generator_UserColumnName="PO_No" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cCmpName" msprop:Generator_ColumnVarNameInTable="columncCmpName" msprop:Generator_ColumnPropNameInRow="cCmpName" msprop:Generator_ColumnPropNameInTable="cCmpNameColumn" msprop:Generator_UserColumnName="cCmpName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_No" msprop:Generator_ColumnVarNameInTable="columnLine_No" msprop:Generator_ColumnPropNameInRow="Line_No" msprop:Generator_ColumnPropNameInTable="Line_NoColumn" msprop:Generator_UserColumnName="Line_No" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cFloor_Descriptin" msprop:Generator_ColumnVarNameInTable="columncFloor_Descriptin" msprop:Generator_ColumnPropNameInRow="cFloor_Descriptin" msprop:Generator_ColumnPropNameInTable="cFloor_DescriptinColumn" msprop:Generator_UserColumnName="cFloor_Descriptin" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BTScanDate" msprop:Generator_ColumnVarNameInTable="columnBTScanDate" msprop:Generator_ColumnPropNameInRow="BTScanDate" msprop:Generator_ColumnPropNameInTable="BTScanDateColumn" msprop:Generator_UserColumnName="BTScanDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Country" msprop:Generator_ColumnVarNameInTable="columnCountry" msprop:Generator_ColumnPropNameInRow="Country" msprop:Generator_ColumnPropNameInTable="CountryColumn" msprop:Generator_UserColumnName="Country" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cStyleNo" msprop:Generator_ColumnVarNameInTable="columncStyleNo" msprop:Generator_ColumnPropNameInRow="cStyleNo" msprop:Generator_ColumnPropNameInTable="cStyleNoColumn" msprop:Generator_UserColumnName="cStyleNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cBuyer_Name" msprop:Generator_ColumnVarNameInTable="columncBuyer_Name" msprop:Generator_ColumnPropNameInRow="cBuyer_Name" msprop:Generator_ColumnPropNameInTable="cBuyer_NameColumn" msprop:Generator_UserColumnName="cBuyer_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mr_Input_To_Sewing_Daily_Rpt" msprop:Generator_TableClassName="Mr_Input_To_Sewing_Daily_RptDataTable" msprop:Generator_TableVarName="tableMr_Input_To_Sewing_Daily_Rpt" msprop:Generator_TablePropName="Mr_Input_To_Sewing_Daily_Rpt" msprop:Generator_RowDeletingName="Mr_Input_To_Sewing_Daily_RptRowDeleting" msprop:Generator_RowChangingName="Mr_Input_To_Sewing_Daily_RptRowChanging" msprop:Generator_RowEvHandlerName="Mr_Input_To_Sewing_Daily_RptRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Input_To_Sewing_Daily_RptRowDeleted" msprop:Generator_UserTableName="Mr_Input_To_Sewing_Daily_Rpt" msprop:Generator_RowChangedName="Mr_Input_To_Sewing_Daily_RptRowChanged" msprop:Generator_RowEvArgName="Mr_Input_To_Sewing_Daily_RptRowChangeEvent" msprop:Generator_RowClassName="Mr_Input_To_Sewing_Daily_RptRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cBuyer_Name" msprop:Generator_ColumnVarNameInTable="columncBuyer_Name" msprop:Generator_ColumnPropNameInRow="cBuyer_Name" msprop:Generator_ColumnPropNameInTable="cBuyer_NameColumn" msprop:Generator_UserColumnName="cBuyer_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BTStyle" msprop:Generator_ColumnVarNameInTable="columnBTStyle" msprop:Generator_ColumnPropNameInRow="BTStyle" msprop:Generator_ColumnPropNameInTable="BTStyleColumn" msprop:Generator_UserColumnName="BTStyle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BTLineDes" msprop:Generator_ColumnVarNameInTable="columnBTLineDes" msprop:Generator_ColumnPropNameInRow="BTLineDes" msprop:Generator_ColumnPropNameInTable="BTLineDesColumn" msprop:Generator_UserColumnName="BTLineDes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Color" msprop:Generator_ColumnVarNameInTable="columnColor" msprop:Generator_ColumnPropNameInRow="Color" msprop:Generator_ColumnPropNameInTable="ColorColumn" msprop:Generator_UserColumnName="Color" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TInputQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTInputQty" msprop:Generator_ColumnPropNameInRow="TInputQty" msprop:Generator_ColumnPropNameInTable="TInputQtyColumn" msprop:Generator_UserColumnName="TInputQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="InQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInQty" msprop:Generator_ColumnPropNameInRow="InQty" msprop:Generator_ColumnPropNameInTable="InQtyColumn" msprop:Generator_UserColumnName="InQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DaySewQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDaySewQty" msprop:Generator_ColumnPropNameInRow="DaySewQty" msprop:Generator_ColumnPropNameInTable="DaySewQtyColumn" msprop:Generator_UserColumnName="DaySewQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="sewQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsewQty" msprop:Generator_ColumnPropNameInRow="sewQty" msprop:Generator_ColumnPropNameInTable="sewQtyColumn" msprop:Generator_UserColumnName="sewQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BTStyleCode" msprop:Generator_ColumnVarNameInTable="columnBTStyleCode" msprop:Generator_ColumnPropNameInRow="BTStyleCode" msprop:Generator_ColumnPropNameInTable="BTStyleCodeColumn" msprop:Generator_UserColumnName="BTStyleCode" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

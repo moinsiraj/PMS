@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Asset_Master" targetNamespace="http://tempuri.org/Asset_Master.xsd" xmlns:mstns="http://tempuri.org/Asset_Master.xsd" xmlns="http://tempuri.org/Asset_Master.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Mr_Asset_InfoConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Mr_Asset_InfoConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Mr_Asset_InfoConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Asset_Master" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="Asset_Master" msprop:Generator_UserDSName="Asset_Master">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Mr_Asset_Master_List_Rpt" msprop:Generator_TableClassName="Mr_Asset_Master_List_RptDataTable" msprop:Generator_TableVarName="tableMr_Asset_Master_List_Rpt" msprop:Generator_TablePropName="Mr_Asset_Master_List_Rpt" msprop:Generator_RowDeletingName="Mr_Asset_Master_List_RptRowDeleting" msprop:Generator_RowChangingName="Mr_Asset_Master_List_RptRowChanging" msprop:Generator_RowEvHandlerName="Mr_Asset_Master_List_RptRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Asset_Master_List_RptRowDeleted" msprop:Generator_UserTableName="Mr_Asset_Master_List_Rpt" msprop:Generator_RowChangedName="Mr_Asset_Master_List_RptRowChanged" msprop:Generator_RowEvArgName="Mr_Asset_Master_List_RptRowChangeEvent" msprop:Generator_RowClassName="Mr_Asset_Master_List_RptRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="acat_name" msprop:Generator_ColumnVarNameInTable="columnacat_name" msprop:Generator_ColumnPropNameInRow="acat_name" msprop:Generator_ColumnPropNameInTable="acat_nameColumn" msprop:Generator_UserColumnName="acat_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McAsstNo" msprop:Generator_ColumnVarNameInTable="columnMcAsstNo" msprop:Generator_ColumnPropNameInRow="McAsstNo" msprop:Generator_ColumnPropNameInTable="McAsstNoColumn" msprop:Generator_UserColumnName="McAsstNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McCode" msprop:Generator_ColumnVarNameInTable="columnMcCode" msprop:Generator_ColumnPropNameInRow="McCode" msprop:Generator_ColumnPropNameInTable="McCodeColumn" msprop:Generator_UserColumnName="McCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McSerial" msprop:Generator_ColumnVarNameInTable="columnMcSerial" msprop:Generator_ColumnPropNameInRow="McSerial" msprop:Generator_ColumnPropNameInTable="McSerialColumn" msprop:Generator_UserColumnName="McSerial" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McDesc" msprop:Generator_ColumnVarNameInTable="columnMcDesc" msprop:Generator_ColumnPropNameInRow="McDesc" msprop:Generator_ColumnPropNameInTable="McDescColumn" msprop:Generator_UserColumnName="McDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McMake" msprop:Generator_ColumnVarNameInTable="columnMcMake" msprop:Generator_ColumnPropNameInRow="McMake" msprop:Generator_ColumnPropNameInTable="McMakeColumn" msprop:Generator_UserColumnName="McMake" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McModel" msprop:Generator_ColumnVarNameInTable="columnMcModel" msprop:Generator_ColumnPropNameInRow="McModel" msprop:Generator_ColumnPropNameInTable="McModelColumn" msprop:Generator_UserColumnName="McModel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cDeptname" msprop:Generator_ColumnVarNameInTable="columncDeptname" msprop:Generator_ColumnPropNameInRow="cDeptname" msprop:Generator_ColumnPropNameInTable="cDeptnameColumn" msprop:Generator_UserColumnName="cDeptname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cSection_Description" msprop:Generator_ColumnVarNameInTable="columncSection_Description" msprop:Generator_ColumnPropNameInRow="cSection_Description" msprop:Generator_ColumnPropNameInTable="cSection_DescriptionColumn" msprop:Generator_UserColumnName="cSection_Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cFloor_Descriptin" msprop:Generator_ColumnVarNameInTable="columncFloor_Descriptin" msprop:Generator_ColumnPropNameInRow="cFloor_Descriptin" msprop:Generator_ColumnPropNameInTable="cFloor_DescriptinColumn" msprop:Generator_UserColumnName="cFloor_Descriptin" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_No" msprop:Generator_ColumnVarNameInTable="columnLine_No" msprop:Generator_ColumnPropNameInRow="Line_No" msprop:Generator_ColumnPropNameInTable="Line_NoColumn" msprop:Generator_UserColumnName="Line_No" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mr_Asset_Master_List_Info_Rpt" msprop:Generator_TableClassName="Mr_Asset_Master_List_Info_RptDataTable" msprop:Generator_TableVarName="tableMr_Asset_Master_List_Info_Rpt" msprop:Generator_TablePropName="Mr_Asset_Master_List_Info_Rpt" msprop:Generator_RowDeletingName="Mr_Asset_Master_List_Info_RptRowDeleting" msprop:Generator_RowChangingName="Mr_Asset_Master_List_Info_RptRowChanging" msprop:Generator_RowEvHandlerName="Mr_Asset_Master_List_Info_RptRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Asset_Master_List_Info_RptRowDeleted" msprop:Generator_UserTableName="Mr_Asset_Master_List_Info_Rpt" msprop:Generator_RowChangedName="Mr_Asset_Master_List_Info_RptRowChanged" msprop:Generator_RowEvArgName="Mr_Asset_Master_List_Info_RptRowChangeEvent" msprop:Generator_RowClassName="Mr_Asset_Master_List_Info_RptRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="acat_name" msprop:Generator_ColumnVarNameInTable="columnacat_name" msprop:Generator_ColumnPropNameInRow="acat_name" msprop:Generator_ColumnPropNameInTable="acat_nameColumn" msprop:Generator_UserColumnName="acat_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McAsstNo" msprop:Generator_ColumnVarNameInTable="columnMcAsstNo" msprop:Generator_ColumnPropNameInRow="McAsstNo" msprop:Generator_ColumnPropNameInTable="McAsstNoColumn" msprop:Generator_UserColumnName="McAsstNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McSerial" msprop:Generator_ColumnVarNameInTable="columnMcSerial" msprop:Generator_ColumnPropNameInRow="McSerial" msprop:Generator_ColumnPropNameInTable="McSerialColumn" msprop:Generator_UserColumnName="McSerial" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McDesc" msprop:Generator_ColumnVarNameInTable="columnMcDesc" msprop:Generator_ColumnPropNameInRow="McDesc" msprop:Generator_ColumnPropNameInTable="McDescColumn" msprop:Generator_UserColumnName="McDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McMake" msprop:Generator_ColumnVarNameInTable="columnMcMake" msprop:Generator_ColumnPropNameInRow="McMake" msprop:Generator_ColumnPropNameInTable="McMakeColumn" msprop:Generator_UserColumnName="McMake" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McModel" msprop:Generator_ColumnVarNameInTable="columnMcModel" msprop:Generator_ColumnPropNameInRow="McModel" msprop:Generator_ColumnPropNameInTable="McModelColumn" msprop:Generator_UserColumnName="McModel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cDeptname" msprop:Generator_ColumnVarNameInTable="columncDeptname" msprop:Generator_ColumnPropNameInRow="cDeptname" msprop:Generator_ColumnPropNameInTable="cDeptnameColumn" msprop:Generator_UserColumnName="cDeptname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cSection_Description" msprop:Generator_ColumnVarNameInTable="columncSection_Description" msprop:Generator_ColumnPropNameInRow="cSection_Description" msprop:Generator_ColumnPropNameInTable="cSection_DescriptionColumn" msprop:Generator_UserColumnName="cSection_Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cFloor_Descriptin" msprop:Generator_ColumnVarNameInTable="columncFloor_Descriptin" msprop:Generator_ColumnPropNameInRow="cFloor_Descriptin" msprop:Generator_ColumnPropNameInTable="cFloor_DescriptinColumn" msprop:Generator_UserColumnName="cFloor_Descriptin" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_No" msprop:Generator_ColumnVarNameInTable="columnLine_No" msprop:Generator_ColumnPropNameInRow="Line_No" msprop:Generator_ColumnPropNameInTable="Line_NoColumn" msprop:Generator_UserColumnName="Line_No" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McPurDate" msprop:Generator_ColumnVarNameInTable="columnMcPurDate" msprop:Generator_ColumnPropNameInRow="McPurDate" msprop:Generator_ColumnPropNameInTable="McPurDateColumn" msprop:Generator_UserColumnName="McPurDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="McLastServDate" msprop:Generator_ColumnVarNameInTable="columnMcLastServDate" msprop:Generator_ColumnPropNameInRow="McLastServDate" msprop:Generator_ColumnPropNameInTable="McLastServDateColumn" msprop:Generator_UserColumnName="McLastServDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="McAssetValue" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMcAssetValue" msprop:Generator_ColumnPropNameInRow="McAssetValue" msprop:Generator_ColumnPropNameInTable="McAssetValueColumn" msprop:Generator_UserColumnName="McAssetValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="McCurrency" msprop:Generator_ColumnVarNameInTable="columnMcCurrency" msprop:Generator_ColumnPropNameInRow="McCurrency" msprop:Generator_ColumnPropNameInTable="McCurrencyColumn" msprop:Generator_UserColumnName="McCurrency" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StatusName" msprop:Generator_ColumnVarNameInTable="columnStatusName" msprop:Generator_ColumnPropNameInRow="StatusName" msprop:Generator_ColumnPropNameInTable="StatusNameColumn" msprop:Generator_UserColumnName="StatusName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcRemarks" msprop:Generator_ColumnVarNameInTable="columnAcRemarks" msprop:Generator_ColumnPropNameInRow="AcRemarks" msprop:Generator_ColumnPropNameInTable="AcRemarksColumn" msprop:Generator_UserColumnName="AcRemarks" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McComDate" msprop:Generator_ColumnVarNameInTable="columnMcComDate" msprop:Generator_ColumnPropNameInRow="McComDate" msprop:Generator_ColumnPropNameInTable="McComDateColumn" msprop:Generator_UserColumnName="McComDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mr_Asset_Details_Summary_Rpt" msprop:Generator_TableClassName="Mr_Asset_Details_Summary_RptDataTable" msprop:Generator_TableVarName="tableMr_Asset_Details_Summary_Rpt" msprop:Generator_RowChangedName="Mr_Asset_Details_Summary_RptRowChanged" msprop:Generator_TablePropName="Mr_Asset_Details_Summary_Rpt" msprop:Generator_RowDeletingName="Mr_Asset_Details_Summary_RptRowDeleting" msprop:Generator_RowChangingName="Mr_Asset_Details_Summary_RptRowChanging" msprop:Generator_RowEvHandlerName="Mr_Asset_Details_Summary_RptRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Asset_Details_Summary_RptRowDeleted" msprop:Generator_RowClassName="Mr_Asset_Details_Summary_RptRow" msprop:Generator_UserTableName="Mr_Asset_Details_Summary_Rpt" msprop:Generator_RowEvArgName="Mr_Asset_Details_Summary_RptRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="acat_name" msprop:Generator_ColumnVarNameInTable="columnacat_name" msprop:Generator_ColumnPropNameInRow="acat_name" msprop:Generator_ColumnPropNameInTable="acat_nameColumn" msprop:Generator_UserColumnName="acat_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McAsstNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMcAsstNo" msprop:Generator_ColumnPropNameInRow="McAsstNo" msprop:Generator_ColumnPropNameInTable="McAsstNoColumn" msprop:Generator_UserColumnName="McAsstNo" type="xs:int" minOccurs="0" />
+              <xs:element name="McDesc" msprop:Generator_ColumnVarNameInTable="columnMcDesc" msprop:Generator_ColumnPropNameInRow="McDesc" msprop:Generator_ColumnPropNameInTable="McDescColumn" msprop:Generator_UserColumnName="McDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cDeptname" msprop:Generator_ColumnVarNameInTable="columncDeptname" msprop:Generator_ColumnPropNameInRow="cDeptname" msprop:Generator_ColumnPropNameInTable="cDeptnameColumn" msprop:Generator_UserColumnName="cDeptname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cSection_Description" msprop:Generator_ColumnVarNameInTable="columncSection_Description" msprop:Generator_ColumnPropNameInRow="cSection_Description" msprop:Generator_ColumnPropNameInTable="cSection_DescriptionColumn" msprop:Generator_UserColumnName="cSection_Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cFloor_Descriptin" msprop:Generator_ColumnVarNameInTable="columncFloor_Descriptin" msprop:Generator_ColumnPropNameInRow="cFloor_Descriptin" msprop:Generator_ColumnPropNameInTable="cFloor_DescriptinColumn" msprop:Generator_UserColumnName="cFloor_Descriptin" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_No" msprop:Generator_ColumnVarNameInTable="columnLine_No" msprop:Generator_ColumnPropNameInRow="Line_No" msprop:Generator_ColumnPropNameInTable="Line_NoColumn" msprop:Generator_UserColumnName="Line_No" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McAssetValue" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMcAssetValue" msprop:Generator_ColumnPropNameInRow="McAssetValue" msprop:Generator_ColumnPropNameInTable="McAssetValueColumn" msprop:Generator_UserColumnName="McAssetValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="McCurrency" msprop:Generator_ColumnVarNameInTable="columnMcCurrency" msprop:Generator_ColumnPropNameInRow="McCurrency" msprop:Generator_ColumnPropNameInTable="McCurrencyColumn" msprop:Generator_UserColumnName="McCurrency" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StatusName" msprop:Generator_ColumnVarNameInTable="columnStatusName" msprop:Generator_ColumnPropNameInRow="StatusName" msprop:Generator_ColumnPropNameInTable="StatusNameColumn" msprop:Generator_UserColumnName="StatusName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mr_Asset_Summary_Rpt" msprop:Generator_TableClassName="Mr_Asset_Summary_RptDataTable" msprop:Generator_TableVarName="tableMr_Asset_Summary_Rpt" msprop:Generator_TablePropName="Mr_Asset_Summary_Rpt" msprop:Generator_RowDeletingName="Mr_Asset_Summary_RptRowDeleting" msprop:Generator_RowChangingName="Mr_Asset_Summary_RptRowChanging" msprop:Generator_RowEvHandlerName="Mr_Asset_Summary_RptRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Asset_Summary_RptRowDeleted" msprop:Generator_UserTableName="Mr_Asset_Summary_Rpt" msprop:Generator_RowChangedName="Mr_Asset_Summary_RptRowChanged" msprop:Generator_RowEvArgName="Mr_Asset_Summary_RptRowChangeEvent" msprop:Generator_RowClassName="Mr_Asset_Summary_RptRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="McCode" msprop:Generator_ColumnVarNameInTable="columnMcCode" msprop:Generator_ColumnPropNameInRow="McCode" msprop:Generator_ColumnPropNameInTable="McCodeColumn" msprop:Generator_UserColumnName="McCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McAsstNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMcAsstNo" msprop:Generator_ColumnPropNameInRow="McAsstNo" msprop:Generator_ColumnPropNameInTable="McAsstNoColumn" msprop:Generator_UserColumnName="McAsstNo" type="xs:int" minOccurs="0" />
+              <xs:element name="McDesc" msprop:Generator_ColumnVarNameInTable="columnMcDesc" msprop:Generator_ColumnPropNameInRow="McDesc" msprop:Generator_ColumnPropNameInTable="McDescColumn" msprop:Generator_UserColumnName="McDesc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="McAssetValue" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMcAssetValue" msprop:Generator_ColumnPropNameInRow="McAssetValue" msprop:Generator_ColumnPropNameInTable="McAssetValueColumn" msprop:Generator_UserColumnName="McAssetValue" type="xs:decimal" minOccurs="0" />
+              <xs:element name="McCurrency" msprop:Generator_ColumnVarNameInTable="columnMcCurrency" msprop:Generator_ColumnPropNameInRow="McCurrency" msprop:Generator_ColumnPropNameInTable="McCurrencyColumn" msprop:Generator_UserColumnName="McCurrency" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Mr_Asset_Master_List_Rpt" />
+      <xs:field xpath="mstns:McAsstNo" />
+    </xs:unique>
+    <xs:unique name="Mr_Asset_Master_List_Info_Rpt_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Mr_Asset_Master_List_Info_Rpt" />
+      <xs:field xpath="mstns:McAsstNo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

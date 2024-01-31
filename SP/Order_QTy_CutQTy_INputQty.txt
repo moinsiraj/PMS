@@ -1,0 +1,18 @@
+SELECT TOP (100) PERCENT a.nStyleID, a.cLotNo, a.nCol, a.nConCode, a.cConDes, a.OrgSize, SUM(a.OrgQty) AS OrdQty, b.CutQty,c.InputQty, SpecFo.dbo.Smt_Colours.cColour, SpecFo.dbo.Smt_OrdersMaster.cPoNum, 
+                  SpecFo.dbo.Smt_StyleMaster.cStyleNo, SpecFo.dbo.Smt_GmtType.cGmetDis, SpecFo.dbo.Smt_StyleMaster.nTotOrdQty, SpecFo.dbo.Smt_BuyerName.cBuyer_Name
+FROM     dbo.Mr_OrderSizeColorQty AS a INNER JOIN
+                      (SELECT nStyleID, cPoLot, nFabColNo, BCountryText, cSize, SUM(nQty) AS CutQty
+                       FROM      Barcoding.dbo.TUP_Bundles
+                       GROUP BY nStyleID, nFabColNo, BCountryText, cPoLot, cSize) AS b ON a.nStyleID = b.nStyleID AND a.cLotNo = b.cPoLot AND a.nCol = b.nFabColNo AND a.OrgSize = b.cSize AND a.nConCode = b.BCountryText INNER JOIN
+                  SpecFo.dbo.Smt_Colours ON a.nCol = SpecFo.dbo.Smt_Colours.nColNo INNER JOIN
+                  SpecFo.dbo.Smt_OrdersMaster ON a.cLotNo = SpecFo.dbo.Smt_OrdersMaster.cOrderNu AND a.nStyleID = SpecFo.dbo.Smt_OrdersMaster.nOStyleId INNER JOIN
+                  SpecFo.dbo.Smt_StyleMaster ON a.nStyleID = SpecFo.dbo.Smt_StyleMaster.nStyleID INNER JOIN
+                  SpecFo.dbo.Smt_GmtType ON SpecFo.dbo.Smt_StyleMaster.cGmtType = SpecFo.dbo.Smt_GmtType.nGmtCode INNER JOIN
+                  SpecFo.dbo.Smt_BuyerName ON SpecFo.dbo.Smt_StyleMaster.nAcct = SpecFo.dbo.Smt_BuyerName.nBuyer_ID LEFT OUTER JOIN
+                      (SELECT BTStyleCode,PoLot,ColorID,CountryID,Size, SUM(BTQty) AS InputQty
+                       FROM      Smartcode.dbo.BundleTicket
+                       WHERE   (BTOperationNo = 4) 
+                       GROUP BY BTStyleCode,PoLot,ColorID,CountryID,Size) AS c ON a.nStyleID = c.BTStyleCode and a.cLotNo=c.PoLot and a.nCol=c.ColorID and a.nConCode=c.CountryID and a.OrgSize=c.Size
+GROUP BY a.nStyleID, a.cLotNo, a.nConCode, a.cConDes, a.OrgSize, a.nCol, b.CutQty,c.InputQty, SpecFo.dbo.Smt_Colours.cColour, SpecFo.dbo.Smt_OrdersMaster.cPoNum, SpecFo.dbo.Smt_StyleMaster.cStyleNo, SpecFo.dbo.Smt_GmtType.cGmetDis, 
+                  SpecFo.dbo.Smt_StyleMaster.nTotOrdQty, SpecFo.dbo.Smt_BuyerName.cBuyer_Name
+ORDER BY a.OrgSize

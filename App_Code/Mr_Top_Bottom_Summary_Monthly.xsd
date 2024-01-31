@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Mr_Top_Bottom_Summary_Monthly" targetNamespace="http://tempuri.org/Mr_Top_Bottom_Summary_Monthly.xsd" xmlns:mstns="http://tempuri.org/Mr_Top_Bottom_Summary_Monthly.xsd" xmlns="http://tempuri.org/Mr_Top_Bottom_Summary_Monthly.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="Mr_Order_In_HandConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Mr_Order_In_HandConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.Mr_Order_In_HandConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Mr_Top_Bottom_Summary_Monthly" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="Mr_Top_Bottom_Summary_Monthly" msprop:Generator_UserDSName="Mr_Top_Bottom_Summary_Monthly">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Mr_Top_Btm_Summary_By_Month" msprop:Generator_TableClassName="Mr_Top_Btm_Summary_By_MonthDataTable" msprop:Generator_TableVarName="tableMr_Top_Btm_Summary_By_Month" msprop:Generator_TablePropName="Mr_Top_Btm_Summary_By_Month" msprop:Generator_RowDeletingName="Mr_Top_Btm_Summary_By_MonthRowDeleting" msprop:Generator_RowChangingName="Mr_Top_Btm_Summary_By_MonthRowChanging" msprop:Generator_RowEvHandlerName="Mr_Top_Btm_Summary_By_MonthRowChangeEventHandler" msprop:Generator_RowDeletedName="Mr_Top_Btm_Summary_By_MonthRowDeleted" msprop:Generator_UserTableName="Mr_Top_Btm_Summary_By_Month" msprop:Generator_RowChangedName="Mr_Top_Btm_Summary_By_MonthRowChanged" msprop:Generator_RowEvArgName="Mr_Top_Btm_Summary_By_MonthRowChangeEvent" msprop:Generator_RowClassName="Mr_Top_Btm_Summary_By_MonthRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="pl_gmt_type" msprop:Generator_ColumnVarNameInTable="columnpl_gmt_type" msprop:Generator_ColumnPropNameInRow="pl_gmt_type" msprop:Generator_ColumnPropNameInTable="pl_gmt_typeColumn" msprop:Generator_UserColumnName="pl_gmt_type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="POQty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPOQty" msprop:Generator_ColumnPropNameInRow="POQty" msprop:Generator_ColumnPropNameInTable="POQtyColumn" msprop:Generator_UserColumnName="POQty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="pl_ship_month" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpl_ship_month" msprop:Generator_ColumnPropNameInRow="pl_ship_month" msprop:Generator_ColumnPropNameInTable="pl_ship_monthColumn" msprop:Generator_UserColumnName="pl_ship_month" type="xs:int" minOccurs="0" />
+              <xs:element name="pl_ship_month_D" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpl_ship_month_D" msprop:Generator_ColumnPropNameInRow="pl_ship_month_D" msprop:Generator_ColumnPropNameInTable="pl_ship_month_DColumn" msprop:Generator_UserColumnName="pl_ship_month_D" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pl_year" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpl_year" msprop:Generator_ColumnPropNameInRow="pl_year" msprop:Generator_ColumnPropNameInTable="pl_yearColumn" msprop:Generator_UserColumnName="pl_year" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BLqty" msprop:Generator_ColumnVarNameInTable="columnBLqty" msprop:Generator_ColumnPropNameInRow="BLqty" msprop:Generator_ColumnPropNameInTable="BLqtyColumn" msprop:Generator_UserColumnName="BLqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="tbl_top_btm_target" msprop:Generator_ColumnVarNameInTable="columntbl_top_btm_target" msprop:Generator_ColumnPropNameInRow="tbl_top_btm_target" msprop:Generator_ColumnPropNameInTable="tbl_top_btm_targetColumn" msprop:Generator_UserColumnName="tbl_top_btm_target" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TtQTy" msprop:Generator_ColumnVarNameInTable="columnTtQTy" msprop:Generator_ColumnPropNameInRow="TtQTy" msprop:Generator_ColumnPropNameInTable="TtQTyColumn" msprop:Generator_UserColumnName="TtQTy" type="xs:decimal" minOccurs="0" />
+              <xs:element name="tday" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntday" msprop:Generator_ColumnPropNameInRow="tday" msprop:Generator_ColumnPropNameInTable="tdayColumn" msprop:Generator_UserColumnName="tday" type="xs:decimal" minOccurs="0" />
+              <xs:element name="acDay" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnacDay" msprop:Generator_ColumnPropNameInRow="acDay" msprop:Generator_ColumnPropNameInTable="acDayColumn" msprop:Generator_UserColumnName="acDay" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

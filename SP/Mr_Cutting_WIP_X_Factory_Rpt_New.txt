@@ -1,0 +1,51 @@
+declare @FDate  date
+declare @TDate  date
+declare @CompanyId int
+set @FDate='03/01/2022'
+set @TDate ='03/30/2022'
+set @CompanyId='49'
+
+
+SELECT TOP (100) PERCENT a.nStyleID, SpecFo.dbo.Smt_StyleMaster.cStyleNo, SpecFo.dbo.Smt_OrdersMaster.cPoNum, a.cLotNo, a.nCol, SpecFo.dbo.Smt_Colours.cColour, SUM(a.OrgQty) AS OrdQty, ISNULL(b.CutQty, 0) AS CutQty, 
+                  ISNULL(c.InputQty, 0) AS InputQty, h.runday,ISNULL(d.SewQty, 0) AS SewQty, ISNULL(e.WSHSNTQty, 0) AS WSHSNTQty, ISNULL(l.WSHRCVDQty, 0) AS WSHRCVDQty, ISNULL(f.Pack, 0) AS Pack, ISNULL(g.FinQty, 0) AS FinQty, 
+                  SpecFo.dbo.Smt_GmtType.cGmetDis, SpecFo.dbo.Smt_StyleMaster.nTotOrdQty, SpecFo.dbo.Smt_BuyerName.cBuyer_Name, SpecFo.dbo.Smt_OrdersMaster.DXfty
+FROM     Mr_PMS.dbo.Mr_OrderSizeColorQty AS a INNER JOIN
+                      (SELECT nStyleID, cPoLot, nFabColNo, SUM(nQty) AS CutQty
+                       FROM      dbo.TUP_Bundles
+                       GROUP BY nStyleID, nFabColNo, cPoLot) AS b ON a.nStyleID = b.nStyleID AND a.cLotNo = b.cPoLot AND a.nCol = b.nFabColNo INNER JOIN
+                  SpecFo.dbo.Smt_Colours ON a.nCol = SpecFo.dbo.Smt_Colours.nColNo INNER JOIN
+                  SpecFo.dbo.Smt_OrdersMaster ON a.cLotNo = SpecFo.dbo.Smt_OrdersMaster.cOrderNu AND a.nStyleID = SpecFo.dbo.Smt_OrdersMaster.nOStyleId INNER JOIN
+                  SpecFo.dbo.Smt_StyleMaster ON a.nStyleID = SpecFo.dbo.Smt_StyleMaster.nStyleID INNER JOIN
+                  SpecFo.dbo.Smt_GmtType ON SpecFo.dbo.Smt_StyleMaster.cGmtType = SpecFo.dbo.Smt_GmtType.nGmtCode INNER JOIN
+                  SpecFo.dbo.Smt_BuyerName ON SpecFo.dbo.Smt_StyleMaster.nAcct = SpecFo.dbo.Smt_BuyerName.nBuyer_ID LEFT OUTER JOIN
+                      (SELECT BTStyleCode, PoLot, ColorID, SUM(BTQty) AS InputQty
+                       FROM      SmartCode.dbo.BundleTicket
+                       WHERE   (BTOperationNo = 4)
+                       GROUP BY BTStyleCode, PoLot, ColorID) AS c ON a.nStyleID = c.BTStyleCode AND a.cLotNo = c.PoLot AND a.nCol = c.ColorID LEFT OUTER JOIN
+                      (SELECT BTStyleCode, PoLot, ColorID, SUM(BTQty) AS SewQty
+                       FROM      SmartCode.dbo.BundleTicket AS BundleTicket_3
+                       WHERE   (BTOperationNo = 5)
+                       GROUP BY BTStyleCode, PoLot, ColorID) AS d ON a.nStyleID = d.BTStyleCode AND a.cLotNo = d.PoLot AND a.nCol = d.ColorID LEFT OUTER JOIN
+                      (SELECT BTStyleCode, PoLot, ColorID, SUM(BTQty) AS WSHSNTQty
+                       FROM      SmartCode.dbo.BundleTicket AS BundleTicket_6
+                       WHERE   (BTOperationNo = 1) AND (sent_rcvd_status = 1)
+                       GROUP BY BTStyleCode, PoLot, ColorID) AS e ON a.nStyleID = e.BTStyleCode AND a.cLotNo = e.PoLot AND a.nCol = e.ColorID LEFT OUTER JOIN
+                      (SELECT BTStyleCode, PoLot, ColorID, SUM(BTQty) AS WSHRCVDQty
+                       FROM      SmartCode.dbo.BundleTicket AS BundleTicket_5
+                       WHERE   (BTOperationNo = 1) AND (sent_rcvd_status = 2)
+                       GROUP BY BTStyleCode, PoLot, ColorID) AS l ON a.nStyleID = l.BTStyleCode AND a.cLotNo = l.PoLot AND a.nCol = l.ColorID LEFT OUTER JOIN
+                      (SELECT BTStyleCode, PoLot, ColorID, SUM(BTQty) AS Pack
+                       FROM      SmartCode.dbo.BundleTicket AS BundleTicket_2
+                       WHERE   (BTOperationNo = 10)
+                       GROUP BY BTStyleCode, PoLot, ColorID) AS f ON a.nStyleID = f.BTStyleCode AND a.cLotNo = f.PoLot AND a.nCol = f.ColorID LEFT OUTER JOIN
+                      (SELECT BTStyleCode, PoLot, ColorID, SUM(BTQty) AS FinQty
+                       FROM      SmartCode.dbo.BundleTicket AS BundleTicket_1
+                       WHERE   (BTOperationNo = 9)
+                       GROUP BY BTStyleCode, PoLot, ColorID) AS g ON a.nStyleID = g.BTStyleCode AND a.cLotNo = g.PoLot AND a.nCol = g.ColorID LEFT OUTER JOIN
+					   (SELECT aStyleID, DATEDIFF(day, MIN(aDate), GETDATE()) AS runday
+                       FROM      Smartcode.dbo.Hrs_ProductionByLine
+                       GROUP BY aStyleID) AS h ON a.nStyleID = h.aStyleID 
+GROUP BY a.nStyleID, a.cLotNo, a.nCol, b.CutQty, c.InputQty, d.SewQty,h.runday, e.WSHSNTQty, l.WSHRCVDQty, f.Pack, g.FinQty, SpecFo.dbo.Smt_Colours.cColour, SpecFo.dbo.Smt_OrdersMaster.cPoNum, SpecFo.dbo.Smt_StyleMaster.cStyleNo, 
+                  SpecFo.dbo.Smt_GmtType.cGmetDis, SpecFo.dbo.Smt_StyleMaster.nTotOrdQty, SpecFo.dbo.Smt_BuyerName.cBuyer_Name, SpecFo.dbo.Smt_OrdersMaster.DXfty
+HAVING (SpecFo.dbo.Smt_OrdersMaster.DXfty >= CONVERT(DATETIME, @FDate, 102)) and (SpecFo.dbo.Smt_OrdersMaster.DXfty <= CONVERT(DATETIME, @TDate, 102))
+ORDER BY SpecFo.dbo.Smt_StyleMaster.cStyleNo

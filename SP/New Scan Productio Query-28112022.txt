@@ -1,0 +1,483 @@
+USE [Mr_PMS]
+GO
+/****** Object:  StoredProcedure [dbo].[Mr_ScanBarcode_Sewing_Production]    Script Date: 11/28/2022 1:54:04 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER Procedure [dbo].[Mr_ScanBarcode_Sewing_Production]
+
+(
+@Barcode int,
+@ScanUser varchar(30),
+@COMID int
+
+)
+
+as 
+BEGIN
+IF(DATEPART(HOUR, GETDATE())=06) or (DATEPART(HOUR, GETDATE())=07) or (DATEPART(HOUR, GETDATE())=08)
+BEGIN
+Update SmartCode.dbo.BundleTicket set BTScanStatus=1,BTDataHead='B',BTPrintDate=getdate(),BTHour=1, BTScanDate=getdate(), BTScanBy=@ScanUser where BTDataHead='D' and BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID
+END
+
+IF(DATEPART(HOUR, GETDATE())=09) 
+BEGIN
+Update SmartCode.dbo.BundleTicket set BTScanStatus=1,BTDataHead='B',BTPrintDate=getdate(),BTHour=2, BTScanDate=getdate(), BTScanBy=@ScanUser where BTDataHead='D' and BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID
+END
+
+IF(DATEPART(HOUR, GETDATE())=10) 
+BEGIN
+Update SmartCode.dbo.BundleTicket set BTScanStatus=1,BTDataHead='B',BTPrintDate=getdate(),BTHour=3, BTScanDate=getdate(), BTScanBy=@ScanUser where BTDataHead='D' and BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID
+END
+
+IF(DATEPART(HOUR, GETDATE())=11) 
+BEGIN
+Update SmartCode.dbo.BundleTicket set BTScanStatus=1,BTDataHead='B',BTPrintDate=getdate(),BTHour=4, BTScanDate=getdate(), BTScanBy=@ScanUser where BTDataHead='D' and BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID
+END
+
+IF(DATEPART(HOUR, GETDATE())=12) 
+BEGIN
+Update SmartCode.dbo.BundleTicket set BTScanStatus=1,BTDataHead='B',BTPrintDate=getdate(),BTHour=5, BTScanDate=getdate(), BTScanBy=@ScanUser where BTDataHead='D' and BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID
+END
+IF(DATEPART(HOUR, GETDATE())=13) 
+BEGIN
+Update SmartCode.dbo.BundleTicket set BTScanStatus=1,BTDataHead='B',BTPrintDate=getdate(),BTHour=5, BTScanDate=getdate(), BTScanBy=@ScanUser where BTDataHead='D' and BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID
+END
+IF(DATEPART(HOUR, GETDATE())=14) 
+BEGIN
+Update SmartCode.dbo.BundleTicket set BTScanStatus=1,BTDataHead='B',BTPrintDate=getdate(),BTHour=6, BTScanDate=getdate(), BTScanBy=@ScanUser where BTDataHead='D' and BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID
+END
+IF(DATEPART(HOUR, GETDATE())=15) 
+BEGIN
+Update SmartCode.dbo.BundleTicket set BTScanStatus=1,BTDataHead='B',BTPrintDate=getdate(),BTHour=7, BTScanDate=getdate(), BTScanBy=@ScanUser where BTDataHead='D' and BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID
+END
+IF(DATEPART(HOUR, GETDATE())=16) 
+BEGIN
+Update SmartCode.dbo.BundleTicket set BTScanStatus=1,BTDataHead='B',BTPrintDate=getdate(),BTHour=8, BTScanDate=getdate(), BTScanBy=@ScanUser where BTDataHead='D' and BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID
+END
+IF(DATEPART(HOUR, GETDATE())=17) 
+BEGIN
+Update SmartCode.dbo.BundleTicket set BTScanStatus=1,BTDataHead='B',BTPrintDate=getdate(),BTHour=9, BTScanDate=getdate(), BTScanBy=@ScanUser where BTDataHead='D' and BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID
+END
+
+IF(DATEPART(HOUR, GETDATE())=18) 
+BEGIN
+Update SmartCode.dbo.BundleTicket set BTScanStatus=1,BTDataHead='B',BTPrintDate=getdate(),BTHour=10, BTScanDate=getdate(), BTScanBy=@ScanUser where BTDataHead='D' and BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID
+END
+
+IF(DATEPART(HOUR, GETDATE())=19) 
+BEGIN
+Update SmartCode.dbo.BundleTicket set BTScanStatus=1,BTDataHead='B',BTPrintDate=getdate(),BTHour=11, BTScanDate=getdate(), BTScanBy=@ScanUser where BTDataHead='D' and BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID
+END
+
+IF(DATEPART(HOUR, GETDATE())>=20) 
+BEGIN
+Update SmartCode.dbo.BundleTicket set BTScanStatus=1,BTDataHead='B',BTPrintDate=getdate(),BTHour=12, BTScanDate=getdate(), BTScanBy=@ScanUser where BTDataHead='D' and BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID
+END
+
+
+	DECLARE  @Date as  date
+	DECLARE @lineDes as varchar (30)
+	DECLARE @Stage as char(30)
+	set @Stage ='SEWING QC OUT'
+	DECLARE @Qty as	int 
+	--DECLARE @Hour as int
+	DECLARE @StageID as int
+	set @StageID =5
+	DECLARE @StyleNo as	varchar(50)
+	DECLARE @Color as	varchar(50)
+	DECLARE @StyleID as	int
+	DECLARE @lineID	as int
+	DECLARE @COM as int
+	DECLARE @PoLot as varchar(3)
+	DECLARE @ColorID as int
+
+	SELECT @Date=MAX(BTScanDate), @lineDes=max(BTLineDes),@Stage='SEWING QC OUT', @Qty=max(BTQty), @StageID=5,
+@StyleNo=max(BTStyle),@Color=max(Color), @StyleID=max(BTStyleCode),@lineID=max(BTLine),@COM=max(CompanyID), @PoLot=max(PoLot),@ColorID=max(ColorID)
+FROM SmartCode.dbo.BundleTicket where BTBundleNo=@Barcode and BTOperationNo=5 and CompanyID=@COMID and BTDataHead='B'
+
+  end
+
+BEGIN
+IF NOT EXISTS (SELECT * FROM SmartCode.dbo.Hrs_ProductionByLine WHERE aCompanyID = @COM AND aDate = @Date AND aLine = @lineDes AND  aPO = @StyleNo AND aColor = @Color AND aColorCode = @ColorID AND aStyleID = @StyleID AND aLineID = @LineID AND nPoLot = @PoLot)
+
+
+BEGIN
+IF(DATEPART(HOUR, GETDATE())=06) or (DATEPART(HOUR, GETDATE())=07) or (DATEPART(HOUR, GETDATE())=08)
+BEGIN
+Insert Into SmartCode.dbo.Hrs_ProductionByLine (aDate, aLine, aCompanyID, aHr1, aStage, aStageNo, aPO, aColor,  aStyleID,aLineID, nPoLot) 
+values (@Date, @lineDes, @COM, @Qty, @Stage, @StageID, @StyleNo, @Color, @StyleID, @LineID, @PoLot);
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=09)
+BEGIN
+Insert Into SmartCode.dbo.Hrs_ProductionByLine (aDate, aLine, aCompanyID, aHr2, aStage, aStageNo, aPO, aColor,  aStyleID,aLineID, nPoLot) 
+values (@Date, @lineDes, @COM, @Qty, @Stage, @StageID, @StyleNo, @Color, @StyleID, @LineID, @PoLot);
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=10)
+BEGIN
+Insert Into SmartCode.dbo.Hrs_ProductionByLine (aDate, aLine, aCompanyID, aHr3, aStage, aStageNo, aPO, aColor,  aStyleID,aLineID, nPoLot) 
+values (@Date, @lineDes, @COM, @Qty, @Stage, @StageID, @StyleNo, @Color, @StyleID, @LineID, @PoLot);
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=11)
+BEGIN
+Insert Into SmartCode.dbo.Hrs_ProductionByLine (aDate, aLine, aCompanyID, aHr4, aStage, aStageNo, aPO, aColor,  aStyleID,aLineID, nPoLot) 
+values (@Date, @lineDes, @COM, @Qty, @Stage, @StageID, @StyleNo, @Color, @StyleID, @LineID, @PoLot);
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=12)
+BEGIN
+Insert Into SmartCode.dbo.Hrs_ProductionByLine (aDate, aLine, aCompanyID, aHr5, aStage, aStageNo, aPO, aColor,  aStyleID,aLineID, nPoLot) 
+values (@Date, @lineDes, @COM, @Qty, @Stage, @StageID, @StyleNo, @Color, @StyleID, @LineID, @PoLot);
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=13)
+BEGIN
+Insert Into SmartCode.dbo.Hrs_ProductionByLine (aDate, aLine, aCompanyID, aHr5, aStage, aStageNo, aPO, aColor,  aStyleID,aLineID, nPoLot) 
+values (@Date, @lineDes, @COM, @Qty, @Stage, @StageID, @StyleNo, @Color, @StyleID, @LineID, @PoLot);
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=14)
+BEGIN
+Insert Into SmartCode.dbo.Hrs_ProductionByLine (aDate, aLine, aCompanyID, aHr6, aStage, aStageNo, aPO, aColor,  aStyleID,aLineID, nPoLot) 
+values (@Date, @lineDes, @COM, @Qty, @Stage, @StageID, @StyleNo, @Color, @StyleID, @LineID, @PoLot);
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=15)
+BEGIN
+Insert Into SmartCode.dbo.Hrs_ProductionByLine (aDate, aLine, aCompanyID, aHr7, aStage, aStageNo, aPO, aColor,  aStyleID,aLineID, nPoLot) 
+values (@Date, @lineDes, @COM, @Qty, @Stage, @StageID, @StyleNo, @Color, @StyleID, @LineID, @PoLot);
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=16)
+BEGIN
+Insert Into SmartCode.dbo.Hrs_ProductionByLine (aDate, aLine, aCompanyID, aHr8, aStage, aStageNo, aPO, aColor,  aStyleID,aLineID, nPoLot) 
+values (@Date, @lineDes, @COM, @Qty, @Stage, @StageID, @StyleNo, @Color, @StyleID, @LineID, @PoLot);
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=17)
+BEGIN
+Insert Into SmartCode.dbo.Hrs_ProductionByLine (aDate, aLine, aCompanyID, aHr9, aStage, aStageNo, aPO, aColor,  aStyleID,aLineID, nPoLot) 
+values (@Date, @lineDes, @COM, @Qty, @Stage, @StageID, @StyleNo, @Color, @StyleID, @LineID, @PoLot);
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=18)
+BEGIN
+Insert Into SmartCode.dbo.Hrs_ProductionByLine (aDate, aLine, aCompanyID, aHr10, aStage, aStageNo, aPO, aColor,  aStyleID,aLineID, nPoLot) 
+values (@Date, @lineDes, @COM, @Qty, @Stage, @StageID, @StyleNo, @Color, @StyleID, @LineID, @PoLot);
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=19)
+BEGIN
+Insert Into SmartCode.dbo.Hrs_ProductionByLine (aDate, aLine, aCompanyID, aHr11, aStage, aStageNo, aPO, aColor,  aStyleID,aLineID, nPoLot) 
+values (@Date, @lineDes, @COM, @Qty, @Stage, @StageID, @StyleNo, @Color, @StyleID, @LineID, @PoLot);
+END
+ELSE IF(DATEPART(HOUR, GETDATE())>=20)
+BEGIN
+Insert Into SmartCode.dbo.Hrs_ProductionByLine (aDate, aLine, aCompanyID, aHr12, aStage, aStageNo, aPO, aColor,  aStyleID,aLineID, nPoLot) 
+values (@Date, @lineDes, @COM, @Qty, @Stage, @StageID, @StyleNo, @Color, @StyleID, @LineID, @PoLot);
+END
+
+END
+
+ELSE 
+BEGIN
+IF(DATEPART(HOUR, GETDATE())=08)
+BEGIN
+declare @qty1 int=(select TOP 1 MAX(aHr1) from SmartCode.dbo.Hrs_ProductionByLine where 
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+)
+ Update SmartCode.dbo.Hrs_ProductionByLine set aHr1= @Qty+@qty1
+ where
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=09)
+BEGIN
+declare @qty2 int=(select TOP 1 MAX(aHr2) from SmartCode.dbo.Hrs_ProductionByLine where 
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+)
+ Update SmartCode.dbo.Hrs_ProductionByLine set aHr2= @Qty+@qty2
+ where
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=10)
+BEGIN
+declare @qty3 int=(select TOP 1 MAX(aHr3) from SmartCode.dbo.Hrs_ProductionByLine where 
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+)
+ Update SmartCode.dbo.Hrs_ProductionByLine set aHr3= @Qty+@qty3
+ where
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=11)
+BEGIN
+declare @qty4 int=(select TOP 1 MAX(aHr4) from SmartCode.dbo.Hrs_ProductionByLine where 
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+)
+ Update SmartCode.dbo.Hrs_ProductionByLine set aHr4= @Qty+@qty4
+ where
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=12)
+BEGIN
+declare @qty5 int=(select TOP 1 MAX(aHr5) from SmartCode.dbo.Hrs_ProductionByLine where 
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+)
+ Update SmartCode.dbo.Hrs_ProductionByLine set aHr5= @Qty+@qty5
+ where
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=13)
+BEGIN
+declare @qty51 int=(select TOP 1 MAX(aHr5) from SmartCode.dbo.Hrs_ProductionByLine where 
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+)
+ Update SmartCode.dbo.Hrs_ProductionByLine set aHr5 = @Qty+@qty51
+ where
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=14)
+BEGIN
+declare @qty6 int=(select TOP 1 MAX(aHr6) from SmartCode.dbo.Hrs_ProductionByLine where 
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+)
+ Update SmartCode.dbo.Hrs_ProductionByLine set aHr6= @Qty+@qty6
+ where
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=15)
+BEGIN
+declare @qty7 int=(select TOP 1 MAX(aHr7) from SmartCode.dbo.Hrs_ProductionByLine where 
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+)
+ Update SmartCode.dbo.Hrs_ProductionByLine set aHr7= @Qty+@qty7
+ where
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=16)
+BEGIN
+declare @qty8 int=(select TOP 1 MAX(aHr8) from SmartCode.dbo.Hrs_ProductionByLine where 
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+)
+ Update SmartCode.dbo.Hrs_ProductionByLine set aHr8= @Qty+@qty8
+ where
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=17)
+BEGIN
+declare @qty9 int=(select TOP 1 MAX(aHr9) from SmartCode.dbo.Hrs_ProductionByLine where 
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+)
+ Update SmartCode.dbo.Hrs_ProductionByLine set aHr9= @Qty+@qty9
+ where
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=18)
+BEGIN
+declare @qty10 int=(select TOP 1 MAX(aHr10) from SmartCode.dbo.Hrs_ProductionByLine where 
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+)
+ Update SmartCode.dbo.Hrs_ProductionByLine set aHr10= @Qty+@qty10
+ where
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+END
+ELSE IF(DATEPART(HOUR, GETDATE())=19)
+BEGIN
+declare @qty11 int=(select TOP 1 MAX(aHr11) from SmartCode.dbo.Hrs_ProductionByLine where 
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+)
+ Update SmartCode.dbo.Hrs_ProductionByLine set aHr11= @Qty+@qty11
+ where
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+END
+ELSE IF(DATEPART(HOUR, GETDATE())>=20)
+BEGIN
+declare @qty12 int=(select TOP 1 MAX(aHr12) from SmartCode.dbo.Hrs_ProductionByLine where 
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+)
+ Update SmartCode.dbo.Hrs_ProductionByLine set aHr12= @Qty+@qty12
+ where
+aDate = @Date AND
+aLine = @lineDes AND
+aCompanyID = @COM AND
+aPO = @StyleNo AND
+aColor = @Color AND
+aStyleID = @StyleID AND
+aLineID = @LineID AND
+nPoLot = @PoLot
+END
+END
+end
+
+
+
+
+

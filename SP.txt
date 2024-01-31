@@ -1,0 +1,14 @@
+DECLARE @CopyCount INT = 1400/20;
+with cteRowGen AS
+(
+    SELECT 1 AS RowNum
+
+    UNION ALL
+
+    SELECT RowNum + 1
+    FROM cteRowGen
+    WHERE RowNum < @CopyCount
+)
+insert into Mr_Test_01(amount_des_1,amount_1,counts)
+    select amount_des,(amount/20), (amount/20) as counts
+        from Mr_Test CROSS JOIN cteRowGen;
