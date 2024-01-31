@@ -37,12 +37,15 @@ public partial class Sewing_Report_Mr_Daily_Production_Variance_Rpt : System.Web
 
             string FromDate = Session["FROMDATE"].ToString();
             ReportViewer1.ProcessingMode = ProcessingMode.Local;
-            SqlDataAdapter cmd = new SqlDataAdapter("Mr_Daily_Production_Variance_Rpt", R2m_PMS_cnn);
+            SqlDataAdapter cmd = new SqlDataAdapter("Mr_Daily_Production_Variance_Rpt_demo", R2m_PMS_cnn);
+            //SqlDataAdapter cmd = new SqlDataAdapter("Mr_Daily_Production_Variance_Rpt", R2m_PMS_cnn);
             cmd.SelectCommand.CommandType = CommandType.StoredProcedure;
             cmd.SelectCommand.Parameters.AddWithValue("@com", COM);
             cmd.SelectCommand.Parameters.AddWithValue("@toDay", FromDate);
             DataSet ds = new DataSet();
-            cmd.Fill(ds, "Mr_Daily_Production_Variance_Rpt");
+            cmd.Fill(ds, "Mr_Daily_Production_Variance_Rpt_demo");
+            cmd.SelectCommand.CommandTimeout = 3600;
+            //cmd.Fill(ds, "Mr_Daily_Production_Variance_Rpt");
             ReportDataSource rds = new ReportDataSource("DataSet1", ds.Tables[0]);
             ReportParameterCollection reportParameters = new ReportParameterCollection();
 
@@ -55,12 +58,12 @@ public partial class Sewing_Report_Mr_Daily_Production_Variance_Rpt : System.Web
             ReportViewer1.LocalReport.DataSources.Clear();
             ReportViewer1.LocalReport.DataSources.Add(rds);
             var bytes = ReportViewer1.LocalReport.Render("PDF");
-            //Response.Buffer = true;
-            //Response.ContentType = "application/pdf";
-            //Response.AddHeader("content-disposition", "inline;attachment; filename=Sample.pdf");
-            //Response.BinaryWrite(bytes);
-            //Response.Flush(); // send it to the client to download
-            //Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition", "inline;attachment; filename=Sample.pdf");
+            Response.BinaryWrite(bytes);
+            Response.Flush(); // send it to the client to download
+            Response.Clear();
         }
     }
 }

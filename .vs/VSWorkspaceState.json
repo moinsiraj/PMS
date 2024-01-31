@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\App_Code",
+    "\\Sewing_Report"
   ],
-  "SelectedNode": "\\R2m_Button_Pro.aspx",
+  "SelectedNode": "\\App_Code\\Mr_Daily_Production_Variance_Rpt.xsd",
   "PreviewInSolutionExplorer": false
 }
